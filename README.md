@@ -1,180 +1,374 @@
-**| [English](README_en.md) | 简体中文 | [日本語](README_jp.md) |**
+# AzurLaneAutoScript (Alas)
 
-# AzurLaneAutoScript
+> 碧藍航線全自動腳本 ✦ Full-auto Azur Lane bot ✦ 碧ブレイン全自動スクリプト ✦ 벽람항로 자동화 봇
 
-#### Discord [![](https://img.shields.io/discord/720789890354249748?logo=discord&logoColor=ffffff&color=4e4c97)](https://discord.gg/AQN6GeJ) QQ群  ![](https://img.shields.io/badge/QQ%20Group-1087735381-4e4c97)
-Azur Lane bot with GUI (Supports CN, EN, JP, TW, able to support other servers), designed for 24/7 running scenes, can take over almost all Azur Lane gameplay. Azur Lane, as a mobile game, has entered the late stage of its life cycle. During the period from now to the server down, please reduce the time spent on the Azur Lane and leave everything to Alas.
+**語言 / Language / 言語 / 언어**
+[繁體中文](#繁體中文) ✦ [English](#english) ✦ [日本語](#日本語) ✦ [한국어](#한국어)
 
-Alas is a free open source software, link: https://github.com/LmeSzinc/AzurLaneAutoScript
+---
 
-Alas，一个带GUI的碧蓝航线脚本（支持国服, 国际服, 日服, 台服, 可以支持其他服务器），为 7x24 运行的场景而设计，能接管近乎全部的碧蓝航线玩法。碧蓝航线，作为一个手游，已经进入了生命周期的晚期。从现在到关服的这段时间里，请减少花费在碧蓝航线上的时间，把一切都交给 Alas。
+## 繁體中文
 
-Alas 是一款免费开源软件，地址：https://github.com/LmeSzinc/AzurLaneAutoScript
+Alas 是一個帶有網頁介面的碧藍航線自動化腳本，支援國服、國際服、日服、台服。設計目標為 24 小時持續運行，可接手幾乎所有遊戲內容。
 
-EN support, thanks **[@whoamikyo](https://github.com/whoamikyo)** and **[@nEEtdo0d](https://github.com/nEEtdo0d)**.
+原始專案：[LmeSzinc/AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript)
+本 Fork 額外支援 **Apple Silicon（ARM）Mac**。
 
-JP support, thanks **[@ferina8-14](https://github.com/ferina8-14)**, **[@noname94](https://github.com/noname94)** and **[@railzy](https://github.com/railzy)**.
+### 主要功能
 
-TW support, thanks **[@Zorachristine](https://github.com/Zorachristine)** , some features might not work.
+- 出擊：主線圖、活動圖、共鬥活動、緊急委託刷鑽石
+- 收穫：委託、戰術學院、科研、後宅、大艦隊、每日抽卡
+- 每日：每日任務、困難圖、演習、潛艇圖
+- 大世界：餘燼信標、每月開荒、隱秘海域、深淵海域、賽壬要塞
 
-GUI development, thanks **[@18870](https://github.com/18870)** , say HURRAY.
+### 安裝教學（Apple Silicon Mac）
 
-![](https://img.shields.io/github/commit-activity/m/LmeSzinc/AzurLaneAutoScript?color=4e4c97) ![](https://img.shields.io/tokei/lines/github/LmeSzinc/AzurLaneAutoScript?color=4e4c97) ![](https://img.shields.io/github/repo-size/LmeSzinc/AzurLaneAutoScript?color=4e4c97) ![](https://img.shields.io/github/issues-closed/LmeSzinc/AzurLaneAutoScript?color=4e4c97) ![](https://img.shields.io/github/issues-pr-closed/LmeSzinc/AzurLaneAutoScript?color=4e4c97)
+> 適用 M1 / M2 / M3 / M4，macOS 12 以上
 
-这里是一张GUI预览图：
-![gui](https://raw.githubusercontent.com/LmeSzinc/AzurLaneAutoScript/master/doc/README.assets/gui.png)
+**第一步：安裝必要工具**
 
+開啟「終端機」，貼上以下指令逐行執行：
 
+```bash
+# 安裝 Homebrew（套件管理器）
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## 功能 Features
-
-- **出击**：主线图，活动图，共斗活动，紧急委托刷钻石。
-- **收获**：委托，战术学院，科研，后宅，指挥喵，大舰队，收获，商店购买，开发船坞，每日抽卡，档案密钥。
-- **每日**：每日任务，困难图，演习，潜艇图，活动每日AB图，活动每日SP图，共斗活动每日，作战档案。
-- **大世界**：余烬信标，每月开荒，大世界每日，隐秘海域，短猫相接，深渊海域，塞壬要塞。
-
-#### 突出特性：
-
-- **心情控制**：计算心情防止红脸或者保持经验加成状态。
-- **活动图开荒**：支持在非周回模式下运行，能处理移动距离限制，光之壁，岸防炮，地图解谜，地图迷宫等特殊机制。
-- **无缝收菜**：时间管理大师，计算委托科研等的完成时间，完成后立即收获。
-- **大世界**：一条龙完成，接大世界每日，买空港口商店，做大世界每日，短猫相接，购买明石商店，每27分钟清理隐秘海域，清理深渊海域和塞壬要塞，~~计划作战模式是什么垃圾，感觉不如Alas......好用~~。
-- **大世界月初开荒**：大世界每月重置后，不需要购买作战记录仪（5000油道具）即可开荒。
-
-
-
-## 安装 Installation [![](https://img.shields.io/github/downloads/LmeSzinc/AzurLaneAutoScript/total?color=4e4c97)](https://github.com/LmeSzinc/AzurLaneAutoScript/releases)
-
-[中文安装教程](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/Installation_cn)，包含自动安装教程，使用教程，手动安装教程，远程控制教程。
-
-[设备支持文档](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/Emulator_cn)，包含模拟器运行、云手机运行以及解锁各种骚方式运行。
-
-
-
-## 正确地使用调度器
-
-- **理解 *任务* 和 *调度器* 的概念**
-
-  在 Alas 中每个任务都是独立运行的，被一个统一的调度器调度，任务执行完成后会自动设置这个任务的下一次运行时间。例如，*科研* 任务执行了一个 4 小时的科研，调度器就会把 *科研* 任务推迟 4 小时，以达到无缝收菜的目的。
-
-- **理解 *自动心情控制* 机制**
-
-  Alas 的心情控制以预防为主，不会等到出现红脸弹窗才去解决，这样可以保持心情值在 120 以上，贪到 20% 的经验。例如，当前心情值是 113，放置于后宅二楼（+50/h），未婚（+0/h），Alas 会等到 12 分钟之后，心情值回复到 120 以上再继续出击。而在这个等待的期间，Alas 也会穿插执行其他任务。
-
-- **正确地使用调度器**
-
-  调度器的 **错误使用方法是只开一两个** 任务，手动管理任务或开关 Alas，调度器的 **正确使用方法是启用全部** 你觉得可能有用的任务，让调度器自动调度，把模拟器和 Alas 都最小化到托盘，忘记碧蓝航线这个游戏。
-
-
-
-## 修改游戏设置
-
-对照这个表格修改游戏内的设置，~~正常玩过游戏的都这么设置~~。
-
-> 对着改的意思是，这是统一的标准，照着给定的内容执行，不要问为什么，不允许有不一样的。
-
-主界面 => 右下角：设置 => 左侧边栏：选项
-
-| 设置名称                            | 值   |
-| ----------------------------------- | ---- |
-| 帧数设置                            | 60帧 |
-| 大型作战设置 - 减少TB引导           | 开   |
-| 大型作战设置 - 自律时自动提交道具   | 开   |
-| 大型作战设置 - 安全海域默认开启自律 | 关   |
-| 剧情自动播放                        | 开启 |
-| 剧情自动播放速度调整                | 特快 |
-| 待机模式设置 - 启用待机模式         | 关    |
-| 其他设置 - 重复角色获得提示         | 关   |
-| 其他设置 - 快速更换二次确认界面     | 关   |
-| 其他设置 - 展示结算角色             | 关   |
-
-大世界 => 右上角：雷达 => 指令模块(order)：潜艇支援：
-| 设置名称                                                 | 值               |
-| -------------------------------------------------------- | ---------------- |
-| X 消耗时潜艇出击  |取消勾选|
-
-主界面 => 右下角：建造 => 左侧边栏： 退役 => 左侧齿轮图标：一键退役设置：
-
-| 设置名称                                                 | 值               |
-| -------------------------------------------------------- | ---------------- |
-| 选择优先级1                                              | R                |
-| 选择优先级2                                              | SR               |
-| 选择优先级3                                              | N                |
-| 「拥有」满星的同名舰船时，保留几艘符合退役条件的同名舰船 | 不保留           |
-| 「没有」满星的同名舰船时，保留几艘符合退役条件的同名舰船 | 满星所需或不保留 |
-
-将角色设备的装备外观移除，以免影响图像识别
-
-## 如何上报bug How to Report Bugs
-
-在提问题之前至少花费 5 分钟来思考和准备，才会有人花费他的 5 分钟来帮助你。"XX怎么运行不了"，"XX卡住了"，这样的描述将不会得到回复。
-
-- 在提问题前，请先阅读 [常见问题(FAQ)](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/FAQ_en_cn)。
-- 检查 Alas 的更新和最近的 commit，确认使用的是最新版。
-- 上传出错 log，在 `log/error` 目录下，以毫秒时间戳为文件夹名，包含 log.txt 和最近的截图。若不是错误而是非预期的行为，提供在 `log` 目录下当天的 log和至少一张游戏截图。
-
-
-
-## 已知问题 Known Issues
-
-- **无法处理网络波动**，重连弹窗，跳小黄鸡。
-- **在极低配电脑上运行可能会出现各种问题**，极低配指截图耗时大于1s，一般电脑耗时约0.5s，高配耗时约0.3s。
-- **演习可能SL失败**，演习看的是屏幕上方的血槽，血槽可能被立绘遮挡，因此需要一定时间（默认1s）血量低于一定值（默认40%）才会触发SL。一个血皮后排就有30%左右的血槽，所以有可能在 1s 内被打死。
-- **极少数情况下 ADB 和 uiautomator2 会抽风**，是模拟器的问题，重启模拟器即可。
-- **拖动操作在模拟器卡顿时，会被视为点击**
-
-
-
-## Alas 社区准则 Alas Community Guidelines
-
-见 [#1416](https://github.com/LmeSzinc/AzurLaneAutoScript/issues/1416)。
-
-
-
-## 文档 Documents
-
-[海图识别 perspective](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/perspective)
-
-`海图识别` 是一个碧蓝航线脚本的核心，如果只是单纯地使用 `模板匹配 (Template matching)` 来进行索敌，就不可避免地会出现 BOSS被小怪堵住 的情况。 Alas 提供了一个更好的海图识别方法，在 `module.map_detection` 中，你将可以得到完整的海域信息，比如：
-
-```
-2020-03-10 22:09:03.830 | INFO |    A  B  C  D  E  F  G  H
-2020-03-10 22:09:03.830 | INFO | 1 -- ++ 2E -- -- -- -- --
-2020-03-10 22:09:03.830 | INFO | 2 -- ++ ++ MY -- -- 2E --
-2020-03-10 22:09:03.830 | INFO | 3 == -- FL -- -- -- 2E MY
-2020-03-10 22:09:03.830 | INFO | 4 -- == -- -- -- -- ++ ++
-2020-03-10 22:09:03.830 | INFO | 5 -- -- -- 2E -- 2E ++ ++
+# 安裝 miniforge（conda）、git、adb
+brew install miniforge git android-platform-tools
 ```
 
-更多文档，请前往 [WIKI](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki)。
+**第二步：下載專案並建立環境**
 
+```bash
+git clone https://github.com/jhihlinglu/AzurLaneAutoScript.git
+cd AzurLaneAutoScript
 
+# 建立 Python 環境（需幾分鐘）
+CONDA_CHANNEL_PRIORITY=flexible conda env create -f environment-arm-mac.yml
 
-## 参与开发 Join Development
+# 修復 macOS 動態函式庫問題
+conda activate alas
+bash deploy/mac/fix_rpath.sh
+```
 
-Alas 仍在活跃开发中，我们会不定期发布未来的工作在 [Issues](https://github.com/LmeSzinc/AzurLaneAutoScript/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) 上并标记为 `help wanted`，欢迎向 Alas 提交 [Pull Requests](https://github.com/LmeSzinc/AzurLaneAutoScript/pulls)，我们会认真阅读你的每一行代码的。
+**第三步：設定 deploy.yaml**
 
-哦对，别忘了阅读 [开发文档](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start)。
+```bash
+cp config/deploy.template-mac.yaml config/deploy.yaml
+```
 
+用文字編輯器開啟 `config/deploy.yaml`，找到這行：
 
+```
+PythonExecutable: /Users/username/miniforge3/envs/alas/bin/python
+```
 
-## 相关项目 Relative Repositories
+把 `username` 換成你的 Mac 使用者名稱（或執行 `conda activate alas && which python` 取得正確路徑）。
 
-- [AzurStats](https://azur-stats.lyoko.io/)，基于 Alas 实现的碧蓝航线掉落统计平台。
-- [AzurLaneUncensored](https://github.com/LmeSzinc/AzurLaneUncensored)，与 Alas 对接的碧蓝航线反和谐。
-- [ALAuto](https://github.com/Egoistically/ALAuto)，EN服的碧蓝航线脚本，已不再维护，Alas 模仿了其架构。
-- [ALAuto homg_trans_beta](https://github.com/asd111333/ALAuto/tree/homg_trans_beta)，Alas 引入了其中的单应性变换至海图识别模块中。
-- [PyWebIO](https://github.com/pywebio/PyWebIO)，Alas 使用的 GUI 库。
-- [MaaAssistantArknights](https://github.com/MaaAssistantArknights/MaaAssistantArknights)，明日方舟小助手，全日常一键长草，现已加入Alas豪华午餐 -> [MAA 插件使用教程](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/submodule_maa_cn)
-- [FGO-py](https://github.com/hgjazhgj/FGO-py)，全自动免配置跨平台开箱即用的Fate/Grand Order助手.启动脚本,上床睡觉,养肝护发,满加成圣诞了解一下?
-- [StarRailCopilot](https://github.com/LmeSzinc/StarRailCopilot)，星铁速溶茶，崩坏：星穹铁道脚本，基于下一代Alas框架。
+**第四步：連接模擬器**
 
+1. 下載並安裝 [BlueStacks for Mac](https://www.bluestacks.com/mac)
+2. 開啟 BlueStacks → 右上角「齒輪」→ 偏好設定 → 進階 → 開啟 **Android Debug Bridge（ADB）**
+3. 設定解析度：顯示 → `1280 × 720`，選「平板」模式
+4. 回到終端機執行：
 
+```bash
+adb connect 127.0.0.1:5555
+```
 
-## 联系我们 Contact Us
+**第五步：啟動 Alas**
 
-- Discord: [https://discord.gg/AQN6GeJ](https://discord.gg/AQN6GeJ)
-- QQ 八群：[938081688](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3h8Gl323WkIt6yGx8Jx5Ht93puZxeA8T&authKey=xPT6kPm7W9jWO2TNzPdohJ27l1njxorwKmkDrbwwYGGA6Oni1xQSJhHsRIJ8w7GZ&noverify=0&group_code=938081688)
-- QQ 一群：[1087735381](https://jq.qq.com/?_wv=1027&k=I4NSqX7g) （有开发意向请加一群，入群需要提供你的Github用户名）
-- Bilibili 直播间：https://live.bilibili.com/22216705 ，偶尔直播写Alas，~~为了拯救Alas，Lme决定出道成为偶像~~
+```bash
+conda activate alas
+cd AzurLaneAutoScript
+python gui.py
+```
 
+開啟瀏覽器，前往 **http://127.0.0.1:22267**
+
+在 Alas 設定頁面，將 `Alas → Emulator → Serial` 設為 `127.0.0.1:5555`，即可開始使用。
+
+### 常見問題
+
+| 問題 | 解決方式 |
+|---|---|
+| `ImportError: libgfortran` | 執行 `bash deploy/mac/fix_rpath.sh` |
+| conda env create 失敗 | 確認指令前有加 `CONDA_CHANNEL_PRIORITY=flexible` |
+| ADB 連不上模擬器 | 確認 BlueStacks 有開啟 ADB，並重新執行 `adb connect 127.0.0.1:5555` |
+
+---
+
+## English
+
+Alas is an Azur Lane automation bot with a web GUI, supporting CN / EN / JP / TW servers. Designed for 24/7 operation — it can handle almost all in-game content automatically.
+
+Original project: [LmeSzinc/AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript)
+This fork adds native **Apple Silicon (ARM) Mac** support.
+
+### Features
+
+- Sorties: story maps, event maps, co-op, emergency commissions
+- Collection: commissions, academy, research, dorm, daily gacha
+- Daily: daily quests, hard maps, exercise, submarine maps
+- META: monthly meta, hidden zones, abyss, siren stronghold
+
+### Installation (Apple Silicon Mac)
+
+> Requires M1 / M2 / M3 / M4, macOS 12 or later
+
+**Step 1 — Install prerequisites**
+
+Open **Terminal** and run these commands one by one:
+
+```bash
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install miniforge (conda), git, adb
+brew install miniforge git android-platform-tools
+```
+
+**Step 2 — Download and set up the environment**
+
+```bash
+git clone https://github.com/jhihlinglu/AzurLaneAutoScript.git
+cd AzurLaneAutoScript
+
+# Create Python environment (takes a few minutes)
+CONDA_CHANNEL_PRIORITY=flexible conda env create -f environment-arm-mac.yml
+
+# Fix macOS dynamic library issues
+conda activate alas
+bash deploy/mac/fix_rpath.sh
+```
+
+**Step 3 — Configure deploy.yaml**
+
+```bash
+cp config/deploy.template-mac.yaml config/deploy.yaml
+```
+
+Open `config/deploy.yaml` in a text editor and update this line:
+
+```
+PythonExecutable: /Users/username/miniforge3/envs/alas/bin/python
+```
+
+Replace `username` with your Mac username. (Or run `conda activate alas && which python` to get the exact path.)
+
+**Step 4 — Connect an emulator**
+
+1. Download and install [BlueStacks for Mac](https://www.bluestacks.com/mac)
+2. Open BlueStacks → top-right gear icon → Preferences → Advanced → enable **Android Debug Bridge (ADB)**
+3. Set resolution: Display → `1280 × 720`, select **Tablet** mode
+4. Back in Terminal, run:
+
+```bash
+adb connect 127.0.0.1:5555
+```
+
+**Step 5 — Launch Alas**
+
+```bash
+conda activate alas
+cd AzurLaneAutoScript
+python gui.py
+```
+
+Open your browser and go to **http://127.0.0.1:22267**
+
+In the Alas settings page, set `Alas → Emulator → Serial` to `127.0.0.1:5555`.
+
+### Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `ImportError: libgfortran` | Run `bash deploy/mac/fix_rpath.sh` |
+| `conda env create` fails | Make sure to prefix the command with `CONDA_CHANNEL_PRIORITY=flexible` |
+| ADB can't connect | Confirm ADB is enabled in BlueStacks, then re-run `adb connect 127.0.0.1:5555` |
+
+---
+
+## 日本語
+
+Alas は Web GUI 付きの碧ブレイン自動化スクリプトです。CN / EN / JP / TW サーバーに対応し、24 時間稼働を前提に設計されています。ほぼすべてのゲームコンテンツを自動化できます。
+
+オリジナルプロジェクト：[LmeSzinc/AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript)
+この Fork では **Apple Silicon（ARM）Mac** のネイティブ動作を追加サポートしています。
+
+### 主な機能
+
+- 出撃：ストーリー海域、イベント海域、共闘、緊急委託
+- 収穫：委託、戦術教室、科研、寮、デイリーガチャ
+- デイリー：デイリー任務、ハード海域、演習、潜水艦海域
+- 大世界：月次開拓、潜伏海域、深淵海域、セイレーン要塞
+
+### インストール手順（Apple Silicon Mac）
+
+> M1 / M2 / M3 / M4、macOS 12 以降が必要です
+
+**ステップ 1 — 必要ツールのインストール**
+
+「ターミナル」を開き、以下のコマンドを一行ずつ実行します：
+
+```bash
+# Homebrew のインストール
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# miniforge（conda）、git、adb のインストール
+brew install miniforge git android-platform-tools
+```
+
+**ステップ 2 — プロジェクトのダウンロードと環境構築**
+
+```bash
+git clone https://github.com/jhihlinglu/AzurLaneAutoScript.git
+cd AzurLaneAutoScript
+
+# Python 環境の作成（数分かかります）
+CONDA_CHANNEL_PRIORITY=flexible conda env create -f environment-arm-mac.yml
+
+# macOS のダイナミックライブラリ問題を修正
+conda activate alas
+bash deploy/mac/fix_rpath.sh
+```
+
+**ステップ 3 — deploy.yaml の設定**
+
+```bash
+cp config/deploy.template-mac.yaml config/deploy.yaml
+```
+
+テキストエディタで `config/deploy.yaml` を開き、以下の行を編集します：
+
+```
+PythonExecutable: /Users/username/miniforge3/envs/alas/bin/python
+```
+
+`username` を自分の Mac ユーザー名に変更してください。（`conda activate alas && which python` で正確なパスを確認できます。）
+
+**ステップ 4 — エミュレーターの接続**
+
+1. [BlueStacks for Mac](https://www.bluestacks.com/mac) をダウンロード・インストール
+2. BlueStacks を起動 → 右上の歯車アイコン → 設定 → 詳細設定 → **Android Debug Bridge（ADB）** を有効化
+3. 解像度を設定：ディスプレイ → `1280 × 720`、**タブレット**モードを選択
+4. ターミナルで以下を実行：
+
+```bash
+adb connect 127.0.0.1:5555
+```
+
+**ステップ 5 — Alas の起動**
+
+```bash
+conda activate alas
+cd AzurLaneAutoScript
+python gui.py
+```
+
+ブラウザで **http://127.0.0.1:22267** を開きます。
+
+Alas の設定画面で `Alas → Emulator → Serial` を `127.0.0.1:5555` に設定すれば完了です。
+
+### トラブルシューティング
+
+| 問題 | 解決方法 |
+|---|---|
+| `ImportError: libgfortran` | `bash deploy/mac/fix_rpath.sh` を実行 |
+| `conda env create` が失敗する | コマンドの前に `CONDA_CHANNEL_PRIORITY=flexible` を付けているか確認 |
+| ADB が接続できない | BlueStacks で ADB が有効になっているか確認し、`adb connect 127.0.0.1:5555` を再実行 |
+
+---
+
+## 한국어
+
+Alas는 웹 GUI를 갖춘 벽람항로 자동화 봇입니다. CN / EN / JP / TW 서버를 지원하며, 24시간 연속 실행을 목표로 설계되었습니다. 게임 내 거의 모든 콘텐츠를 자동으로 처리합니다.
+
+원본 프로젝트：[LmeSzinc/AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript)
+이 Fork는 **Apple Silicon（ARM）Mac** 네이티브 지원을 추가했습니다.
+
+### 주요 기능
+
+- 출격：스토리 해역, 이벤트 해역, 공동작전, 긴급임무
+- 수확：임무, 전술학원, 연구, 기숙사, 일일 가챠
+- 일일：일일 임무, 하드 해역, 연습, 잠수함 해역
+- 대세계：월간 개척, 은밀 해역, 심연 해역, 사이렌 요새
+
+### 설치 방법（Apple Silicon Mac）
+
+> M1 / M2 / M3 / M4, macOS 12 이상 필요
+
+**1단계 — 필수 도구 설치**
+
+「터미널」을 열고 아래 명령어를 한 줄씩 실행합니다：
+
+```bash
+# Homebrew 설치
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# miniforge（conda）, git, adb 설치
+brew install miniforge git android-platform-tools
+```
+
+**2단계 — 프로젝트 다운로드 및 환경 구성**
+
+```bash
+git clone https://github.com/jhihlinglu/AzurLaneAutoScript.git
+cd AzurLaneAutoScript
+
+# Python 환경 생성（몇 분 소요）
+CONDA_CHANNEL_PRIORITY=flexible conda env create -f environment-arm-mac.yml
+
+# macOS 동적 라이브러리 문제 수정
+conda activate alas
+bash deploy/mac/fix_rpath.sh
+```
+
+**3단계 — deploy.yaml 설정**
+
+```bash
+cp config/deploy.template-mac.yaml config/deploy.yaml
+```
+
+텍스트 편집기로 `config/deploy.yaml` 을 열고 아래 줄을 수정합니다：
+
+```
+PythonExecutable: /Users/username/miniforge3/envs/alas/bin/python
+```
+
+`username` 을 본인의 Mac 사용자 이름으로 변경하세요. （`conda activate alas && which python` 으로 정확한 경로 확인 가능）
+
+**4단계 — 에뮬레이터 연결**
+
+1. [BlueStacks for Mac](https://www.bluestacks.com/mac) 다운로드 및 설치
+2. BlueStacks 실행 → 오른쪽 상단 톱니바퀴 → 환경설정 → 고급 → **Android Debug Bridge（ADB）** 활성화
+3. 해상도 설정：디스플레이 → `1280 × 720`, **태블릿** 모드 선택
+4. 터미널에서 실행：
+
+```bash
+adb connect 127.0.0.1:5555
+```
+
+**5단계 — Alas 실행**
+
+```bash
+conda activate alas
+cd AzurLaneAutoScript
+python gui.py
+```
+
+브라우저에서 **http://127.0.0.1:22267** 접속
+
+Alas 설정 화면에서 `Alas → Emulator → Serial` 을 `127.0.0.1:5555` 로 설정하면 완료입니다.
+
+### 문제 해결
+
+| 문제 | 해결 방법 |
+|---|---|
+| `ImportError: libgfortran` | `bash deploy/mac/fix_rpath.sh` 실행 |
+| `conda env create` 실패 | 명령어 앞에 `CONDA_CHANNEL_PRIORITY=flexible` 가 있는지 확인 |
+| ADB 연결 불가 | BlueStacks에서 ADB가 활성화되어 있는지 확인 후 `adb connect 127.0.0.1:5555` 재실행 |
+
+---
+
+*Fork maintained by [@jhihlinglu](https://github.com/jhihlinglu) · Original project by [@LmeSzinc](https://github.com/LmeSzinc)*
