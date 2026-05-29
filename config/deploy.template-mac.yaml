@@ -1,0 +1,63 @@
+Deploy:
+  Git:
+    # URL of AzurLaneAutoScript repository
+    Repository: https://github.com/LmeSzinc/AzurLaneAutoScript
+    Branch: master
+    # Homebrew git path on Apple Silicon Mac
+    GitExecutable: /opt/homebrew/bin/git
+    GitProxy: null
+    SSLVerify: true
+    AutoUpdate: true
+    KeepLocalChanges: false
+
+  Python:
+    # Path to python in the 'alas' conda environment
+    # Created via: CONDA_CHANNEL_PRIORITY=flexible conda env create -f environment-arm-mac.yml
+    # Then run deploy/mac/fix_rpath.sh to fix macOS dynamic library issues
+    PythonExecutable: /Users/username/miniforge3/envs/alas/bin/python
+    PypiMirror: null
+    # Set to false: dependencies are already installed in the conda environment
+    InstallDependencies: false
+    RequirementsFile: ./deploy/headless/requirements.txt
+
+  Adb:
+    # Homebrew adb path on Apple Silicon Mac
+    # Install via: brew install android-platform-tools
+    AdbExecutable: /opt/homebrew/bin/adb
+    # Set to false: no emulator ADB to replace on Mac
+    ReplaceAdb: false
+    AutoConnect: true
+    InstallUiautomator2: true
+
+  Ocr:
+    UseOcrServer: false
+    StartOcrServer: false
+    OcrServerPort: 22268
+    OcrClientAddress: 127.0.0.1:22268
+
+  Update:
+    EnableReload: true
+    CheckUpdateInterval: 5
+    AutoRestartTime: 03:50
+
+  Misc:
+    DiscordRichPresence: false
+
+  RemoteAccess:
+    EnableRemoteAccess: false
+    SSHUser: null
+    SSHServer: null
+    SSHExecutable: /usr/bin/ssh
+
+  Webui:
+    WebuiHost: 0.0.0.0
+    WebuiPort: 22267
+    # 'zh-CN' / 'zh-TW' / 'en-US' / 'ja-JP'
+    Language: zh-TW
+    Theme: default
+    DpiScaling: true
+    Password: null
+    CDN: false
+    Run: null
+    WebuiSSLKey: null
+    WebuiSSLCert: null
