@@ -376,12 +376,47 @@ def put_arg_select(kwargs: T_Output_Kwargs) -> Output:
         } for opt, opt_label in zip(options, options_label)]
     kwargs["options"] = option
 
+    # PATCH: event_search
+    contents = [
+        get_title_help(kwargs),
+        put_select(**kwargs).style("--input--"),
+    ]
+    if len(options) > 10:
+        search_id = f"event-search-{name}"
+        scope_id  = f"arg_container-select-{name}"
+        js_parts = [
+            'setTimeout(function() {',
+            f"    var el=document.getElementById('{search_id}');",
+            '    if (!el) return;',
+            f"    var c=document.getElementById('pywebio-scope-{scope_id}');",
+            '    if (!c) return;',
+            "    var sel=c.querySelector('select'); if (!sel) return;",
+            '    var items=[];',
+            '    for (var i=0; i<sel.options.length; i++)',
+            '        items.push([sel.options[i].value, sel.options[i].text]);',
+            '    el.oninput = function() {',
+            '        var q=this.value.toLowerCase(), cur=sel.value;',
+            '        sel.options.length = 0;',
+            '        for (var j=0; j<items.length; j++)',
+            '            if (!q || items[j][1].toLowerCase().indexOf(q)>=0 || items[j][0].indexOf(q)>=0) {',
+            "                var opt=document.createElement('option');",
+            '                opt.value=items[j][0]; opt.text=items[j][1];',
+            '                if (items[j][0]===cur) opt.selected=true;',
+            '                sel.add(opt); }',
+            '    };',
+            '}, 300);',
+        ]
+        js = '\n'.join(js_parts)
+        search_html = (
+            f'<input id="{search_id}" type="text" placeholder="&#128269; 搜尋活動..."'
+            f' style="width:100%;margin-bottom:4px;padding:4px 8px;'
+            f'border:1px solid #ced4da;border-radius:4px;font-size:0.9em;">'
+            f'<script>{js}</script>'
+        )
+        contents.insert(1, put_html(search_html))
     return put_scope(
         f"arg_container-select-{name}",
-        [
-            get_title_help(kwargs),
-            put_select(**kwargs).style("--input--"),
-        ],
+        contents,
     )
 
 
