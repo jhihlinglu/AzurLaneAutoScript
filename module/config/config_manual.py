@@ -23,7 +23,7 @@ class ManualConfig:
     > OpsiDaily > OpsiShop > OpsiVoucher
     > OpsiAbyssal > OpsiStronghold > OpsiObscure > OpsiArchive
     > Daily > Hard > OpsiAshBeacon > OpsiAshAssist > OpsiMonthBoss
-    > Sos > EventSp > EventA > EventB > EventC > EventD
+    > Sos > EventSp > EventA > EventB > EventC > EventD > EventClear
     > RaidDaily > CoalitionSp > WarArchives > MaritimeEscort
     > Event > Event2 > Raid > Hospital > Coalition > Main > Main2 > Main3
     > OpsiMeowfficerFarming

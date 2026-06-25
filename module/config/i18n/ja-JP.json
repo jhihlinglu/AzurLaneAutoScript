@@ -277,6 +277,10 @@
     "GameManager": {
       "name": "Game Manager(WIP)",
       "help": ""
+    },
+    "EventClear": {
+      "name": "イベント開拓",
+      "help": "イベントマップを初回攻略します。雑魚を全滅後にボスを倒してアチーブメントを達成"
     }
   },
   "Scheduler": {
@@ -2756,6 +2760,24 @@
       "Clear": "消除",
       "EnterPassword": "パスワードを入力してください",
       "ChooseFile": "ファイルを選択してください"
+    }
+  },
+  "EventClear": {
+    "_info": {
+      "name": "イベント開拓",
+      "help": ""
+    },
+    "StageFilter": {
+      "name": "ステージフィルター",
+      "help": "順番にステージをクリア、達成後に自動進行"
+    },
+    "MapAchievement": {
+      "name": "達成目標",
+      "help": "指定条件達成後に次のステージへ進む"
+    },
+    "LastStage": {
+      "name": "最後にクリアしたステージ",
+      "help": "自動更新。進捗を記録。イベント変更時はリセット"
     }
   }
 }

@@ -277,6 +277,10 @@
     "GameManager": {
       "name": "遊戲管理器(未完成)",
       "help": ""
+    },
+    "EventClear": {
+      "name": "活動拓荒",
+      "help": "自動開荒活動地圖，打完所有小怪再打王以解鎖成就"
     }
   },
   "Scheduler": {
@@ -770,7 +774,7 @@
       "event_20260226_cn": "春滿客棧Online",
       "event_20260326_cn": "漫遊者招募計劃",
       "event_20260417_cn": "假日航線閃耀海濱",
-      "event_20260520_cn": "Alliance Before the Hagiobull",
+      "event_20260520_cn": "聖印前的同盟",
       "raid_20200624": "特別演習埃塞克斯級(復刻)",
       "raid_20210708": "復刻穿越彼方的水線",
       "raid_20220127": "演習神秘事件調查",
@@ -2756,6 +2760,24 @@
       "Clear": "清除",
       "EnterPassword": "輸入密碼",
       "ChooseFile": "選擇檔案"
+    }
+  },
+  "EventClear": {
+    "_info": {
+      "name": "活動拓荒",
+      "help": ""
+    },
+    "StageFilter": {
+      "name": "關卡過濾器",
+      "help": "按順序逐關開荒，打完成就後自動推進"
+    },
+    "MapAchievement": {
+      "name": "成就目標",
+      "help": "達成指定成就後跳至下一關"
+    },
+    "LastStage": {
+      "name": "上一個完成的關卡",
+      "help": "自動更新，記錄已開荒進度，換活動後請清空"
     }
   }
 }

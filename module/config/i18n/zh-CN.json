@@ -277,6 +277,10 @@
     "GameManager": {
       "name": "游戏管理器(未完成)",
       "help": ""
+    },
+    "EventClear": {
+      "name": "活动拓荒",
+      "help": "自动开荒活动地图，打完所有小怪再打王以解锁成就"
     }
   },
   "Scheduler": {
@@ -2756,6 +2760,24 @@
       "Clear": "清除",
       "EnterPassword": "输入密码",
       "ChooseFile": "选择文件"
+    }
+  },
+  "EventClear": {
+    "_info": {
+      "name": "活动拓荒",
+      "help": ""
+    },
+    "StageFilter": {
+      "name": "关卡过滤器",
+      "help": "按顺序逐关开荒，达成成就后自动推进"
+    },
+    "MapAchievement": {
+      "name": "成就目标",
+      "help": "达成指定成就后跳至下一关"
+    },
+    "LastStage": {
+      "name": "上一个完成的关卡",
+      "help": "自动更新，记录已开荒进度，换活动后请清空"
     }
   }
 }

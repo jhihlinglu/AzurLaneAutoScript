@@ -277,6 +277,10 @@
     "GameManager": {
       "name": "Game Manager(WIP)",
       "help": ""
+    },
+    "EventClear": {
+      "name": "Event Clear",
+      "help": "Clear event maps for the first time, killing all enemies before the boss to unlock achievements"
     }
   },
   "Scheduler": {
@@ -2756,6 +2760,24 @@
       "Clear": "Clear",
       "EnterPassword": "Enter password",
       "ChooseFile": "Choose file"
+    }
+  },
+  "EventClear": {
+    "_info": {
+      "name": "Event Clear",
+      "help": ""
+    },
+    "StageFilter": {
+      "name": "Stage Filter",
+      "help": "Clear stages in order, advance automatically after achievement"
+    },
+    "MapAchievement": {
+      "name": "Achievement Target",
+      "help": "Advance to next stage after reaching this condition"
+    },
+    "LastStage": {
+      "name": "Last Cleared Stage",
+      "help": "Auto-updated. Tracks clearing progress. Reset when switching events"
     }
   }
 }
