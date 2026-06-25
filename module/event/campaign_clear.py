@@ -23,7 +23,7 @@ class EventClear(EventBase):
             self.config.Scheduler_Enable = False
             self.config.task_stop()
 
-        # Resume from last cleared stage (achievements are permanent, no daily reset needed)
+        # Resume from last cleared stage
         logger.info(f'LastStage: {self.config.EventClear_LastStage}')
         last = str(self.config.EventClear_LastStage).lower()
         last = self.convert_stages(last)
@@ -38,23 +38,19 @@ class EventClear(EventBase):
             self.config.Scheduler_Enable = False
             self.config.task_stop()
 
-        # Run each stage until the achievement condition is met
         for stage in stages:
             stage = str(stage)
-            # Force achievement-oriented settings for this task:
-            # - MapAchievement drives MAP_CLEAR_ALL_THIS_TIME (kill all enemies before boss)
-            # - RunCount=0 means no count limit (run until achievement triggers)
-            # - StageIncrease=False so EventClear controls progression, not handle_map_stop()
             self.config.override(
                 StopCondition_MapAchievement=self.config.EventClear_MapAchievement,
                 StopCondition_RunCount=0,
                 StopCondition_StageIncrease=False,
             )
+            task_ended_early = False
             try:
                 super().run(name=stage, folder=self.config.Campaign_Event, total=0)
             except TaskEnd:
-                # Catch task switch from scheduler
-                pass
+                # task_switched() or event_time_limit inside CampaignRun
+                task_ended_early = True
             except ScriptEnd as e:
                 if str(e) == 'Campaign name error':
                     task = self.config.task.command
@@ -66,41 +62,50 @@ class EventClear(EventBase):
                 else:
                     raise
 
-            # handle_map_stop() sets Scheduler_Enable=False when achievement is detected
-            # (because StopCondition_StageIncrease=False). Re-enable here so that
-            # task_switched() still sees EventClear as the active task and the for
-            # loop can continue to the next stage.
-            self.config.Scheduler_Enable = True
+            if task_ended_early:
+                # Save LastStage if any battles completed so we resume correctly
+                if self.run_count > 0:
+                    with self.config.multi_set():
+                        self.config.Scheduler_Enable = True
+                        self.config.EventClear_LastStage = stage
+                self.config.task_stop()
 
-            if self.run_count > 0:
-                # Battles were run this stage — check if oil caused an early stop
-                # (triggered_stop_condition breaks the loop before achievement is confirmed)
+            # Reliable achievement signal: handle_map_stop() sets Scheduler_Enable=False
+            # when triggered_map_stop() fires (stage truly achieved).
+            # Emotion control keeps Enable=True (emotion handler re-enables before stopping).
+            stage_cleared = not self.config.Scheduler_Enable
+
+            if not stage_cleared:
+                # Stopped before achievement was confirmed (emotion control, oil stop, etc.)
+                # Config NextRun/Enable already set by whichever handler stopped us.
+                # Add oil delay on top if oil is also low.
                 if self.get_oil() < max(500, self.config.StopCondition_OilLimit):
-                    logger.info('Oil limit reached mid-stage, will retry this stage after oil recovery')
                     with self.config.multi_set():
                         self.config.task_delay(minute=(120, 240))
-                    self.config.task_stop()
-                # Achievement reached this session — record and advance
+                self.config.task_stop()
+
+            # Stage cleared — oil check before advancing
+            if self.get_oil() < max(500, self.config.StopCondition_OilLimit):
                 with self.config.multi_set():
+                    self.config.Scheduler_Enable = True
                     self.config.EventClear_LastStage = stage
-                    self.config.task_delay(minute=0)
-            else:
-                # run_count == 0 has two possible meanings:
-                # 1. triggered_map_stop() fired on map entry → stage already achieved → advance
-                # 2. triggered_stop_condition() fired before first battle → oil was too low
-                if self.get_oil() < max(500, self.config.StopCondition_OilLimit):
-                    logger.info('Oil limit reached before entering stage, pausing')
-                    with self.config.multi_set():
-                        self.config.task_delay(minute=(120, 240))
-                    self.config.task_stop()
-                # Stage confirmed already achieved
+                    self.config.task_delay(minute=(120, 240))
+                self.config.task_stop()
+
+            if self.run_count == 0:
                 logger.info(f'Stage {stage} already achieved, advancing')
+
+            # Re-enable and record progress. Do NOT call task_delay(minute=0) here —
+            # that would change NextRun and make task_switched() always return True,
+            # breaking the loop after every stage. Let the loop continue naturally;
+            # task_switched() will interrupt only when another task actually takes priority.
+            with self.config.multi_set():
+                self.config.Scheduler_Enable = True
                 self.config.EventClear_LastStage = stage
 
             if self.config.task_switched():
                 self.config.task_stop()
 
-        # All stages in filter have been cleared
         logger.hr('All stages cleared')
         self.config.Scheduler_Enable = False
         self.config.task_stop()
