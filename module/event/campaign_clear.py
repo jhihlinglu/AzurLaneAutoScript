@@ -66,6 +66,12 @@ class EventClear(EventBase):
                 else:
                     raise
 
+            # handle_map_stop() sets Scheduler_Enable=False when achievement is detected
+            # (because StopCondition_StageIncrease=False). Re-enable here so that
+            # task_switched() still sees EventClear as the active task and the for
+            # loop can continue to the next stage.
+            self.config.Scheduler_Enable = True
+
             if self.run_count > 0:
                 # Battles were run this stage — check if oil caused an early stop
                 # (triggered_stop_condition breaks the loop before achievement is confirmed)
