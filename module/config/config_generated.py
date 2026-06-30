@@ -441,6 +441,11 @@ class GeneratedConfig:
     # Group `OpsiHazard1Leveling`
     OpsiHazard1Leveling_TargetZone = 0  # 0, 44, 22
 
+    # Group `OpsiZoneFarm`
+    OpsiZoneFarm_TargetZone = 0
+    OpsiZoneFarm_ActionPointPreserve = 0
+    OpsiZoneFarm_UseActionPointBox = False
+
     # Group `Daemon`
     Daemon_EnterMap = True
 

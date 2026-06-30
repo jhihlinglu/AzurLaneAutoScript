@@ -1973,6 +1973,28 @@
       "Storage": {}
     }
   },
+  "OpsiZoneFarm": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "OpsiZoneFarm",
+      "SuccessInterval": 30,
+      "FailureInterval": 30,
+      "ServerUpdate": "00:00"
+    },
+    "OpsiZoneFarm": {
+      "TargetZone": 0,
+      "ActionPointPreserve": 0,
+      "UseActionPointBox": false
+    },
+    "OpsiFleet": {
+      "Fleet": 1,
+      "Submarine": false
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
   "OpsiCrossMonth": {
     "Scheduler": {
       "Enable": false,

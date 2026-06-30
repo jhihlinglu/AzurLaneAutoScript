@@ -63,6 +63,13 @@ class OSCampaignRun(OSMapOperation):
         except ActionPointLimit:
             self.config.task_delay(server_update=True)
 
+    def opsi_zone_farm(self):
+        try:
+            campaign = self.load_campaign()
+            campaign.os_zone_farm()
+        except ActionPointLimit:
+            self.config.task_delay(server_update=True)
+
     def opsi_obscure(self):
         try:
             campaign = self.load_campaign()

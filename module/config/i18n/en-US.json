@@ -250,6 +250,10 @@
       "name": "CL1 Leveling",
       "help": ""
     },
+    "OpsiZoneFarm": {
+      "name": "Zone Farm",
+      "help": ""
+    },
     "OpsiCrossMonth": {
       "name": "Cross Month Daily",
       "help": "    ALAS will enter OpSi 10min before OpSi reset, wait until OpSi reset but not exit OpSi. Then do the daily, obscure, abyssal and meowfficer farming to get extra gold plates. When running dailies, settings in task \"OpSiDaily\" are used, the rest function are the same.\n    IMPORTANT: Please do not touch the game while ALAS is waiting for OpSi reset."
@@ -2556,6 +2560,24 @@
       "0": "No Specification",
       "44": "44 | West Continental Shelf D",
       "22": "22 | NA Ocean SW Sector B"
+    }
+  },
+  "OpsiZoneFarm": {
+    "_info": {
+      "name": "OpSi Zone Farm",
+      "help": "Farm a specified safe zone repeatedly until action points are depleted\nUseful for unlocking OpSi achievements or draining AP at end of month\nMake sure the target zone is already cleared (safe) before use"
+    },
+    "TargetZone": {
+      "name": "Target Zone",
+      "help": "Required. Supports Zone ID or Name in CN/EN/JP/TW\nFor example: \"51\", \"NA Ocean SE Sector E\""
+    },
+    "ActionPointPreserve": {
+      "name": "Keep X Amount of AP",
+      "help": "Stop when total AP falls below this value. Default 0 means drain all AP"
+    },
+    "UseActionPointBox": {
+      "name": "Use AP Boxes",
+      "help": "Whether to open AP boxes automatically when action points run out to continue farming"
     }
   },
   "Daemon": {

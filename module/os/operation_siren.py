@@ -12,6 +12,7 @@ from module.os.tasks.obscure import OpsiObscure
 from module.os.tasks.shop import OpsiShop
 from module.os.tasks.stronghold import OpsiStronghold
 from module.os.tasks.voucher import OpsiVoucher
+from module.os.tasks.zone_farm import OpsiZoneFarm
 
 
 class OperationSiren(
@@ -20,6 +21,7 @@ class OperationSiren(
     OpsiVoucher,
     OpsiMeowfficerFarming,
     OpsiHazard1Leveling,
+    OpsiZoneFarm,
     OpsiObscure,
     OpsiAbyssal,
     OpsiArchive,
