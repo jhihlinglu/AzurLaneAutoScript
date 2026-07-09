@@ -392,6 +392,34 @@ class AlasGUI(Frame):
             for output in output_list:
                 output.show()
 
+        if task == 'EventClear' and group_name == 'EventClear':
+            from module.webui.widgets import _ec_stage_map
+            import json as _json
+            _sm = _ec_stage_map()
+            _sm_json = _json.dumps(_sm, ensure_ascii=False)
+            _did = 'ec-stage-display-EventClear_EventClear_Event'
+            _sid = 'pywebio-scope-arg_container-select-EventClear_EventClear_Event'
+            run_js(
+                f'(function(){{'
+                f'var sm={_sm_json};'
+                f'var sc=document.getElementById("{_sid}");'
+                f'if(!sc)return;'
+                f'var sel=sc.querySelector("select");'
+                f'if(!sel)return;'
+                f'var dv=document.getElementById("{_did}");'
+                f'if(!dv){{'
+                f'dv=document.createElement("div");'
+                f'dv.id="{_did}";'
+                f'dv.style.cssText="padding:4px 12px;background:#eef6fb;border-left:3px solid #5b9bd5;border-radius:3px;font-size:0.85em;color:#2c5f8a;letter-spacing:0.05em;display:none;";'
+                f'sc.parentNode.insertBefore(dv,sc.nextSibling);'
+                f'}}'
+                f'function clean(v){{return v.replace(/^"|"$/g,"");}}'
+                f'function upd(v){{var k=clean(v);dv.textContent=sm[k]||"";dv.style.display=sm[k]?"block":"none";}}'
+                f'sel.addEventListener("change",function(){{upd(this.value);}});'
+                f'upd(sel.value);'
+                f'}})();'
+            )
+
         return len(output_list)
 
     @use_scope("navigator")

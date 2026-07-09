@@ -413,34 +413,6 @@ def put_arg_select(kwargs: T_Output_Kwargs) -> Output:
         put_select(**kwargs).style("--input--"),
     ]
 
-    if name == 'EventClear_EventClear_Event':
-        stage_map = _ec_stage_map()
-        current = stage_map.get(value, '')
-        display_id = f"ec-stage-display-{name}"
-        stage_json = json.dumps(stage_map, ensure_ascii=False)
-        js = (
-            f'setTimeout(function(){{'
-            f'var c=document.getElementById("pywebio-scope-{scope_id}");'
-            f'if(!c)return;'
-            f'var sel=c.querySelector("select");if(!sel)return;'
-            f'var dv=document.getElementById("{display_id}");if(!dv)return;'
-            f'var sm={stage_json};'
-            f'function upd(v){{dv.textContent=sm[v]?sm[v]:"";dv.style.display=sm[v]?"block":"none";}}'
-            f'sel.addEventListener("change",function(){{upd(this.value);}});'
-            f'upd(sel.value);'
-            f'}},400);'
-        )
-        display_html = (
-            f'<div id="{display_id}" '
-            f'style="margin-top:5px;padding:4px 10px;background:#eef6fb;'
-            f'border-left:3px solid #5b9bd5;border-radius:3px;'
-            f'font-size:0.82em;color:#2c5f8a;letter-spacing:0.04em;'
-            f'display:{"block" if current else "none"};">'
-            f'{current}</div>'
-            f'<script>{js}</script>'
-        )
-        contents.append(put_html(display_html))
-
     return put_scope(scope_id, contents)
 
 
