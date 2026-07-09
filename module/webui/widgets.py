@@ -354,6 +354,37 @@ def put_arg_stored(kwargs: T_Output_Kwargs) -> Output:
     )
 
 
+def _ec_stage_map() -> dict:
+    """Scan campaign/ and return {folder: 'T1 T2 T3 HT1 HT2 HT3 SP'} for EventClear display."""
+    import os
+    campaign_dir = './campaign'
+    prefix_order = ['t', 'ht', 'sp', 'ex', 'a', 'b', 'c', 'd']
+    priority = {p: i for i, p in enumerate(prefix_order)}
+
+    def sort_key(n):
+        nl = n.lower()
+        for pfx in sorted(prefix_order, key=len, reverse=True):
+            if nl.startswith(pfx):
+                suf = nl[len(pfx):]
+                return (priority.get(pfx, 99), int(suf) if suf.isdigit() else 999)
+        return (99, 0)
+
+    result = {}
+    if not os.path.isdir(campaign_dir):
+        return result
+    for folder in os.listdir(campaign_dir):
+        if not (folder.startswith('event_') or folder.startswith('war_')):
+            continue
+        fpath = os.path.join(campaign_dir, folder)
+        if not os.path.isdir(fpath):
+            continue
+        stages = [f[:-3] for f in os.listdir(fpath) if f.endswith('.py') and f != '__init__.py']
+        stages.sort(key=sort_key)
+        if stages:
+            result[folder] = '  '.join(s.upper() for s in stages)
+    return result
+
+
 def put_arg_select(kwargs: T_Output_Kwargs) -> Output:
     name: str = kwargs["name"]
     value: str = kwargs["value"]
@@ -376,13 +407,41 @@ def put_arg_select(kwargs: T_Output_Kwargs) -> Output:
         } for opt, opt_label in zip(options, options_label)]
     kwargs["options"] = option
 
-    return put_scope(
-        f"arg_container-select-{name}",
-        [
-            get_title_help(kwargs),
-            put_select(**kwargs).style("--input--"),
-        ],
-    )
+    scope_id = f"arg_container-select-{name}"
+    contents = [
+        get_title_help(kwargs),
+        put_select(**kwargs).style("--input--"),
+    ]
+
+    if name == 'EventClear_EventClear_Event':
+        stage_map = _ec_stage_map()
+        current = stage_map.get(value, '')
+        display_id = f"ec-stage-display-{name}"
+        stage_json = json.dumps(stage_map, ensure_ascii=False)
+        js = (
+            f'setTimeout(function(){{'
+            f'var c=document.getElementById("pywebio-scope-{scope_id}");'
+            f'if(!c)return;'
+            f'var sel=c.querySelector("select");if(!sel)return;'
+            f'var dv=document.getElementById("{display_id}");if(!dv)return;'
+            f'var sm={stage_json};'
+            f'function upd(v){{dv.textContent=sm[v]?sm[v]:"";dv.style.display=sm[v]?"block":"none";}}'
+            f'sel.addEventListener("change",function(){{upd(this.value);}});'
+            f'upd(sel.value);'
+            f'}},400);'
+        )
+        display_html = (
+            f'<div id="{display_id}" '
+            f'style="margin-top:5px;padding:4px 10px;background:#eef6fb;'
+            f'border-left:3px solid #5b9bd5;border-radius:3px;'
+            f'font-size:0.82em;color:#2c5f8a;letter-spacing:0.04em;'
+            f'display:{"block" if current else "none"};">'
+            f'{current}</div>'
+            f'<script>{js}</script>'
+        )
+        contents.append(put_html(display_html))
+
+    return put_scope(scope_id, contents)
 
 
 def put_arg_state(kwargs: T_Output_Kwargs) -> Output:
