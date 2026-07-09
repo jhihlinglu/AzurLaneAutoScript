@@ -366,6 +366,14 @@ WarArchives:
   Campaign:
     Mode: normal
     AmbushEvade: true
+EventClear:
+  Campaign:
+    Name:
+      display: hide
+    Event:
+      display: hide
+    Mode:
+      display: hide
 
 # ==================== Opsi ====================
 

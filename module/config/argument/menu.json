@@ -29,7 +29,8 @@
       "Hospital",
       "Coalition",
       "MaritimeEscort",
-      "WarArchives"
+      "WarArchives",
+      "EventClear"
     ]
   },
   "EventDaily": {
@@ -41,7 +42,6 @@
       "EventC",
       "EventD",
       "EventSp",
-      "EventClear",
       "RaidDaily",
       "CoalitionSp"
     ]

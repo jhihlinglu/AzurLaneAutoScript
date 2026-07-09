@@ -118,6 +118,16 @@ Event:
       - Emotion
       - HpControl
       - EnemyPriority
+    EventClear:
+      - Scheduler
+      - EventClear
+      - Campaign
+      - StopCondition
+      - Fleet
+      - Submarine
+      - Emotion
+      - HpControl
+      - EnemyPriority
 
 
 # ==================== EventDaily ====================
@@ -168,16 +178,6 @@ EventDaily:
       - EnemyPriority
     EventSp:
       - Scheduler
-      - Campaign
-      - StopCondition
-      - Fleet
-      - Submarine
-      - Emotion
-      - HpControl
-      - EnemyPriority
-    EventClear:
-      - Scheduler
-      - EventClear
       - Campaign
       - StopCondition
       - Fleet

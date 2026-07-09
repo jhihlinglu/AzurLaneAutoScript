@@ -8,8 +8,10 @@ from module.logger import logger
 
 class EventClear(EventBase):
     def run(self, *args, **kwargs):
+        # Align Campaign_Event so convert_stages uses the correct folder for stage name mapping
+        self.config.override(Campaign_Event=self.config.EventClear_Event)
         # Filter map files
-        stages = [EventStage(file) for file in os.listdir(f'./campaign/{self.config.Campaign_Event}')]
+        stages = [EventStage(file) for file in os.listdir(f'./campaign/{self.config.EventClear_Event}')]
         stages = self.convert_stages(stages)
         logger.attr('Stage', [str(stage) for stage in stages])
         logger.attr('StageFilter', self.config.EventClear_StageFilter)
@@ -41,13 +43,14 @@ class EventClear(EventBase):
         for stage in stages:
             stage = str(stage)
             self.config.override(
+                Campaign_Mode=self.config.EventClear_Mode,
                 StopCondition_MapAchievement=self.config.EventClear_MapAchievement,
                 StopCondition_RunCount=0,
                 StopCondition_StageIncrease=False,
             )
             task_ended_early = False
             try:
-                super().run(name=stage, folder=self.config.Campaign_Event, total=0)
+                super().run(name=stage, folder=self.config.EventClear_Event, total=0)
             except TaskEnd:
                 # task_switched() or event_time_limit inside CampaignRun
                 task_ended_early = True

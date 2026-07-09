@@ -220,6 +220,7 @@ class CampaignRun(CampaignEvent):
             'event_20250814_cn',
             'event_20251023_cn',
             'event_20260326_cn',
+            'event_20260625_cn',
             'war_archives_20231026_cn',
         ]:
             name = convert.get(name, name)
@@ -256,6 +257,7 @@ class CampaignRun(CampaignEvent):
             'event_20250814_cn',
             'event_20251023_cn',
             'event_20260326_cn',
+            'event_20260625_cn',
             'war_archives_20231026_cn',
         ]:
             name = convert.get(name, name)

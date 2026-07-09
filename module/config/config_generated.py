@@ -167,8 +167,10 @@ class GeneratedConfig:
     EventDaily_LastStage = 0
 
     # Group `EventClear`
-    EventClear_StageFilter = 'A1 > A2 > A3 > B1 > B2 > B3 > C1 > C2 > C3 > D1 > D2 > D3'
-    EventClear_MapAchievement = 'map_3_stars'  # 100_percent_clear, map_3_stars, threat_safe, threat_safe_without_3_stars
+    EventClear_Event = 'campaign_main'  # campaign_main
+    EventClear_Mode = 'normal'  # normal, hard
+    EventClear_StageFilter = 'T1 > T2 > T3 > HT1 > HT2 > HT3 > SP > EX > A1 > A2 > A3 > B1 > B2 > B3 > C1 > C2 > C3 > D1 > D2 > D3'
+    EventClear_MapAchievement = '100_percent_clear'  # 100_percent_clear, map_3_stars
     EventClear_LastStage = None
 
     # Group `Raid`
