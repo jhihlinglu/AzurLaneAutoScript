@@ -83,7 +83,7 @@
       "help": ""
     },
     "Coalition": {
-      "name": "Light & Shadow Fashion Shoot",
+      "name": "Special Event",
       "help": ""
     },
     "MaritimeEscort": {
@@ -114,12 +114,16 @@
       "name": "Event Daily SP",
       "help": ""
     },
+    "EventClear": {
+      "name": "Event Clear",
+      "help": "Clear event maps for the first time, killing all enemies before the boss to unlock achievements"
+    },
     "RaidDaily": {
       "name": "Raid Daily",
       "help": ""
     },
     "CoalitionSp": {
-      "name": "Light & Shadow Fashion Shoot SP",
+      "name": "Special Event SP",
       "help": ""
     },
     "Commission": {
@@ -250,10 +254,6 @@
       "name": "CL1 Leveling",
       "help": ""
     },
-    "OpsiZoneFarm": {
-      "name": "Zone Farm",
-      "help": ""
-    },
     "OpsiCrossMonth": {
       "name": "Cross Month Daily",
       "help": "    ALAS will enter OpSi 10min before OpSi reset, wait until OpSi reset but not exit OpSi. Then do the daily, obscure, abyssal and meowfficer farming to get extra gold plates. When running dailies, settings in task \"OpSiDaily\" are used, the rest function are the same.\n    IMPORTANT: Please do not touch the game while ALAS is waiting for OpSi reset."
@@ -281,10 +281,6 @@
     "GameManager": {
       "name": "Game Manager(WIP)",
       "help": ""
-    },
-    "EventClear": {
-      "name": "Event Clear",
-      "help": "Clear event maps for the first time, killing all enemies before the boss to unlock achievements"
     }
   },
   "Scheduler": {
@@ -759,7 +755,7 @@
       "event_20231221_cn": "Light-Chasing Sea of Stars Rerun",
       "event_20240229_cn": "Snowrealm Peregrination Rerun",
       "event_20240425_cn": "Heart-Linking Harmony",
-      "event_20240521_cn": "Light of the Martyrium",
+      "event_20240521_cn": "Light of the Martyrium Rerun",
       "event_20240725_cn": "Interlude of Illusions",
       "event_20240815_cn": "Windborne Steel Wings",
       "event_20240829_cn": "Whence Flowers Bear No Fruit",
@@ -779,6 +775,7 @@
       "event_20260326_cn": "The Vagabond’s Recruitment Plan",
       "event_20260417_cn": "Vacation Lane – Beachside Brilliance",
       "event_20260520_cn": "Alliance Before the Hagiobull",
+      "event_20260625_cn": "Miracle by Midnight",
       "raid_20200624": "Air Raid Drills with Essex Rerun",
       "raid_20210708": "Cross Wave rerun",
       "raid_20220127": "Mystery Investigation",
@@ -1281,6 +1278,28 @@
       "help": "Automatically updated, skips completed levels in the filter, and resets at server reset time (00:00)"
     }
   },
+  "EventClear": {
+    "_info": {
+      "name": "Event Clear",
+      "help": ""
+    },
+    "StageFilter": {
+      "name": "Stage Filter",
+      "help": "Clear stages in order, advance automatically after achievement"
+    },
+    "MapAchievement": {
+      "name": "Achievement Target",
+      "help": "Advance to next stage after reaching this condition",
+      "100_percent_clear": "100_percent_clear",
+      "map_3_stars": "map_3_stars",
+      "threat_safe": "threat_safe",
+      "threat_safe_without_3_stars": "threat_safe_without_3_stars"
+    },
+    "LastStage": {
+      "name": "Last Cleared Stage",
+      "help": "Auto-updated. Tracks clearing progress. Reset when switching events"
+    }
+  },
   "Raid": {
     "_info": {
       "name": "Raid Settings",
@@ -1336,7 +1355,10 @@
     },
     "Mode": {
       "name": "Mode",
-      "help": "SP needs to use event daily SP to run",
+      "help": "SP needs to use event daily SP to run; Frostfall event uses TC1/TC2/TC3",
+      "tc1": "TC1",
+      "tc2": "TC2",
+      "tc3": "TC3",
       "easy": "easy",
       "normal": "normal",
       "hard": "hard",
@@ -2562,24 +2584,6 @@
       "22": "22 | NA Ocean SW Sector B"
     }
   },
-  "OpsiZoneFarm": {
-    "_info": {
-      "name": "OpSi Zone Farm",
-      "help": "Farm a specified safe zone repeatedly until action points are depleted\nUseful for unlocking OpSi achievements or draining AP at end of month\nMake sure the target zone is already cleared (safe) before use"
-    },
-    "TargetZone": {
-      "name": "Target Zone",
-      "help": "Required. Supports Zone ID or Name in CN/EN/JP/TW\nFor example: \"51\", \"NA Ocean SE Sector E\""
-    },
-    "ActionPointPreserve": {
-      "name": "Keep X Amount of AP",
-      "help": "Stop when total AP falls below this value. Default 0 means drain all AP"
-    },
-    "UseActionPointBox": {
-      "name": "Use AP Boxes",
-      "help": "Whether to open AP boxes automatically when action points run out to continue farming"
-    }
-  },
   "Daemon": {
     "_info": {
       "name": "Semi-auto Clicking",
@@ -2782,24 +2786,6 @@
       "Clear": "Clear",
       "EnterPassword": "Enter password",
       "ChooseFile": "Choose file"
-    }
-  },
-  "EventClear": {
-    "_info": {
-      "name": "Event Clear",
-      "help": ""
-    },
-    "StageFilter": {
-      "name": "Stage Filter",
-      "help": "Clear stages in order, advance automatically after achievement"
-    },
-    "MapAchievement": {
-      "name": "Achievement Target",
-      "help": "Advance to next stage after reaching this condition"
-    },
-    "LastStage": {
-      "name": "Last Cleared Stage",
-      "help": "Auto-updated. Tracks clearing progress. Reset when switching events"
     }
   }
 }

@@ -169,7 +169,7 @@ class GeneratedConfig:
     # Group `EventClear`
     EventClear_StageFilter = 'A1 > A2 > A3 > B1 > B2 > B3 > C1 > C2 > C3 > D1 > D2 > D3'
     EventClear_MapAchievement = 'map_3_stars'  # 100_percent_clear, map_3_stars, threat_safe, threat_safe_without_3_stars
-    EventClear_LastStage = ''
+    EventClear_LastStage = None
 
     # Group `Raid`
     Raid_Mode = 'hard'  # easy, normal, hard, ex
@@ -185,7 +185,7 @@ class GeneratedConfig:
     MaritimeEscort_Enable = True
 
     # Group `Coalition`
-    Coalition_Mode = 'hard'  # easy, normal, hard, sp
+    Coalition_Mode = 'hard'  # tc1, tc2, tc3, easy, normal, hard, sp
     Coalition_Fleet = 'single'  # single, multi
 
     # Group `Commission`
@@ -440,11 +440,6 @@ class GeneratedConfig:
 
     # Group `OpsiHazard1Leveling`
     OpsiHazard1Leveling_TargetZone = 0  # 0, 44, 22
-
-    # Group `OpsiZoneFarm`
-    OpsiZoneFarm_TargetZone = 0
-    OpsiZoneFarm_ActionPointPreserve = 0
-    OpsiZoneFarm_UseActionPointBox = False
 
     # Group `Daemon`
     Daemon_EnterMap = True

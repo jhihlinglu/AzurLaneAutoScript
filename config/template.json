@@ -1123,12 +1123,17 @@
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "EventClear",
-      "SuccessInterval": 30,
-      "FailureInterval": 30,
+      "SuccessInterval": 0,
+      "FailureInterval": 120,
       "ServerUpdate": "00:00"
     },
+    "EventClear": {
+      "StageFilter": "A1 > A2 > A3 > B1 > B2 > B3 > C1 > C2 > C3 > D1 > D2 > D3",
+      "MapAchievement": "map_3_stars",
+      "LastStage": null
+    },
     "Campaign": {
-      "Name": "a1",
+      "Name": "D3",
       "Event": "campaign_main",
       "Mode": "normal",
       "UseClearMode": true,
@@ -1190,11 +1195,6 @@
     },
     "Storage": {
       "Storage": {}
-    },
-    "EventClear": {
-      "StageFilter": "A1 > A2 > A3 > B1 > B2 > B3 > C1 > C2 > C3 > D1 > D2 > D3",
-      "MapAchievement": "map_3_stars",
-      "LastStage": ""
     }
   },
   "RaidDaily": {
@@ -1964,28 +1964,6 @@
     },
     "OpsiHazard1Leveling": {
       "TargetZone": 0
-    },
-    "OpsiFleet": {
-      "Fleet": 1,
-      "Submarine": false
-    },
-    "Storage": {
-      "Storage": {}
-    }
-  },
-  "OpsiZoneFarm": {
-    "Scheduler": {
-      "Enable": false,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "OpsiZoneFarm",
-      "SuccessInterval": 30,
-      "FailureInterval": 30,
-      "ServerUpdate": "00:00"
-    },
-    "OpsiZoneFarm": {
-      "TargetZone": 0,
-      "ActionPointPreserve": 0,
-      "UseActionPointBox": false
     },
     "OpsiFleet": {
       "Fleet": 1,

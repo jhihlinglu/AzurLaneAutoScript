@@ -83,7 +83,7 @@
       "help": ""
     },
     "Coalition": {
-      "name": "光影风尚-拍摄进行时",
+      "name": "特殊活动",
       "help": ""
     },
     "MaritimeEscort": {
@@ -114,12 +114,16 @@
       "name": "活动每日SP图",
       "help": ""
     },
+    "EventClear": {
+      "name": "活动拓荒",
+      "help": "自动开荒活动地图，打完所有小怪再打王以解锁成就"
+    },
     "RaidDaily": {
       "name": "共斗活动每日",
       "help": ""
     },
     "CoalitionSp": {
-      "name": "光影风尚-拍摄进行时SP",
+      "name": "特殊活动SP",
       "help": ""
     },
     "Commission": {
@@ -250,10 +254,6 @@
       "name": "侵蚀1练级",
       "help": ""
     },
-    "OpsiZoneFarm": {
-      "name": "爆刷海域",
-      "help": ""
-    },
     "OpsiCrossMonth": {
       "name": "跨月每日",
       "help": "    Alas将在大世界跨月重置之前10分钟进入大世界，等待大世界重置但不退出大世界，然后完成新一天的大世界每日、隐秘海域、深渊海域和短猫相接，以获得额外的金菜。运行大世界每日时，按\"大世界每日\"任务设置运行，其余同理。\n    重要：Alas等待跨月期间，请不要操作游戏。"
@@ -281,10 +281,6 @@
     "GameManager": {
       "name": "游戏管理器(未完成)",
       "help": ""
-    },
-    "EventClear": {
-      "name": "活动拓荒",
-      "help": "自动开荒活动地图，打完所有小怪再打王以解锁成就"
     }
   },
   "Scheduler": {
@@ -759,7 +755,7 @@
       "event_20231221_cn": "复刻星海逐光",
       "event_20240229_cn": "复刻雪境迷踪",
       "event_20240425_cn": "共鸣的PASSION",
-      "event_20240521_cn": "绽放于辉光之城",
+      "event_20240521_cn": "复刻绽放于辉光之城",
       "event_20240725_cn": "幻梦间奏曲",
       "event_20240815_cn": "铁翼擎风",
       "event_20240829_cn": "埋葬于彼岸之花",
@@ -779,6 +775,7 @@
       "event_20260326_cn": "漫游者招募计划",
       "event_20260417_cn": "假日航线闪耀海滨",
       "event_20260520_cn": "圣印前的同盟",
+      "event_20260625_cn": "美梦巡演奇妙夜",
       "raid_20200624": "复刻特别演习埃塞克斯级",
       "raid_20210708": "复刻穿越彼方的水线",
       "raid_20220127": "演习神秘事件调查",
@@ -1281,6 +1278,28 @@
       "help": "自动更新的数值，将跳过过滤器中已完成的关卡，过0点重置"
     }
   },
+  "EventClear": {
+    "_info": {
+      "name": "活动拓荒",
+      "help": ""
+    },
+    "StageFilter": {
+      "name": "关卡过滤器",
+      "help": "按顺序逐关开荒，达成成就后自动推进"
+    },
+    "MapAchievement": {
+      "name": "成就目标",
+      "help": "达成指定成就后跳至下一关",
+      "100_percent_clear": "100_percent_clear",
+      "map_3_stars": "map_3_stars",
+      "threat_safe": "threat_safe",
+      "threat_safe_without_3_stars": "threat_safe_without_3_stars"
+    },
+    "LastStage": {
+      "name": "上一个完成的关卡",
+      "help": "自动更新，记录已开荒进度，换活动后请清空"
+    }
+  },
   "Raid": {
     "_info": {
       "name": "共斗活动设置",
@@ -1336,7 +1355,10 @@
     },
     "Mode": {
       "name": "难度",
-      "help": "SP图需要使用活动每日SP运行",
+      "help": "SP图需要使用活动每日SP运行；极地风暴活动使用TC1/TC2/TC3",
+      "tc1": "TC1",
+      "tc2": "TC2",
+      "tc3": "TC3",
       "easy": "easy",
       "normal": "normal",
       "hard": "hard",
@@ -2562,24 +2584,6 @@
       "22": "22 | NA海域西南B"
     }
   },
-  "OpsiZoneFarm": {
-    "_info": {
-      "name": "爆刷海域",
-      "help": "在指定的安全海域持续刷图，直到行动力耗尽\n适合用于解锁大世界成就或月底消耗剩余行动力\n使用前须确认目标海域已是安全海域"
-    },
-    "TargetZone": {
-      "name": "指定海域",
-      "help": "必填。支持海域ID、国服/国际服/日服/台服海域名称\n例如 \"51\", \"NA海域东南E\", \"NA Ocean SE Sector E\""
-    },
-    "ActionPointPreserve": {
-      "name": "保留行动力",
-      "help": "行动力低于此数值后停止。默认0代表耗尽所有行动力"
-    },
-    "UseActionPointBox": {
-      "name": "使用行动力箱子",
-      "help": "行动力耗尽后是否自动开启行动力箱子继续刷图"
-    }
-  },
   "Daemon": {
     "_info": {
       "name": "半自动点击",
@@ -2782,24 +2786,6 @@
       "Clear": "清除",
       "EnterPassword": "输入密码",
       "ChooseFile": "选择文件"
-    }
-  },
-  "EventClear": {
-    "_info": {
-      "name": "活动拓荒",
-      "help": ""
-    },
-    "StageFilter": {
-      "name": "关卡过滤器",
-      "help": "按顺序逐关开荒，达成成就后自动推进"
-    },
-    "MapAchievement": {
-      "name": "成就目标",
-      "help": "达成指定成就后跳至下一关"
-    },
-    "LastStage": {
-      "name": "上一个完成的关卡",
-      "help": "自动更新，记录已开荒进度，换活动后请清空"
     }
   }
 }

@@ -114,6 +114,10 @@
       "name": "毎日イベント海域SP",
       "help": ""
     },
+    "EventClear": {
+      "name": "イベント開拓",
+      "help": "イベントマップを初回攻略します。雑魚を全滅後にボスを倒してアチーブメントを達成"
+    },
     "RaidDaily": {
       "name": "Raid Daily",
       "help": ""
@@ -250,10 +254,6 @@
       "name": "CL1 Leveling",
       "help": ""
     },
-    "OpsiZoneFarm": {
-      "name": "Zone Farm",
-      "help": ""
-    },
     "OpsiCrossMonth": {
       "name": "Cross Month Daily",
       "help": "    ALAS will enter OpSi 10min before OpSi reset, wait until OpSi reset but not exit OpSi. Then do the daily, obscure, abyssal and meowfficer farming to get extra gold plates. When running dailies, settings in task \"OpSiDaily\" are used, the rest function are the same.\n    IMPORTANT: Please do not touch the game while ALAS is waiting for OpSi reset."
@@ -281,10 +281,6 @@
     "GameManager": {
       "name": "Game Manager(WIP)",
       "help": ""
-    },
-    "EventClear": {
-      "name": "イベント開拓",
-      "help": "イベントマップを初回攻略します。雑魚を全滅後にボスを倒してアチーブメントを達成"
     }
   },
   "Scheduler": {
@@ -759,7 +755,7 @@
       "event_20231221_cn": "光追う星の海（復刻）",
       "event_20240229_cn": "銀界遊廻（復刻）",
       "event_20240425_cn": "共鳴のパッション",
-      "event_20240521_cn": "赫輝のマルティリウム",
+      "event_20240521_cn": "赫輝のマルティリウム（復刻）",
       "event_20240725_cn": "夢幻の間奏曲",
       "event_20240815_cn": "錬翼空翔",
       "event_20240829_cn": "徒花咲かす彼岸",
@@ -779,6 +775,7 @@
       "event_20260326_cn": "ワンダラー募集計画",
       "event_20260417_cn": "バケーションレーン・きらめく砂浜",
       "event_20260520_cn": "聖印前の同盟",
+      "event_20260625_cn": "幻夢のカヴァルカード",
       "raid_20200624": "特別演習超空強襲波（復刻）",
       "raid_20210708": "交錯する新たな波 (復刻)",
       "raid_20220127": "秘密事件調査",
@@ -1281,6 +1278,28 @@
       "help": "EventDaily.LastStage.help"
     }
   },
+  "EventClear": {
+    "_info": {
+      "name": "イベント開拓",
+      "help": ""
+    },
+    "StageFilter": {
+      "name": "ステージフィルター",
+      "help": "順番にステージをクリア、達成後に自動進行"
+    },
+    "MapAchievement": {
+      "name": "達成目標",
+      "help": "指定条件達成後に次のステージへ進む",
+      "100_percent_clear": "100_percent_clear",
+      "map_3_stars": "map_3_stars",
+      "threat_safe": "threat_safe",
+      "threat_safe_without_3_stars": "threat_safe_without_3_stars"
+    },
+    "LastStage": {
+      "name": "最後にクリアしたステージ",
+      "help": "自動更新。進捗を記録。イベント変更時はリセット"
+    }
+  },
   "Raid": {
     "_info": {
       "name": "Raid._info.name",
@@ -1337,6 +1356,9 @@
     "Mode": {
       "name": "Coalition.Mode.name",
       "help": "Coalition.Mode.help",
+      "tc1": "TC1",
+      "tc2": "TC2",
+      "tc3": "TC3",
       "easy": "easy",
       "normal": "normal",
       "hard": "hard",
@@ -2562,24 +2584,6 @@
       "22": "22"
     }
   },
-  "OpsiZoneFarm": {
-    "_info": {
-      "name": "OpsiZoneFarm._info.name",
-      "help": "OpsiZoneFarm._info.help"
-    },
-    "TargetZone": {
-      "name": "OpsiZoneFarm.TargetZone.name",
-      "help": "OpsiZoneFarm.TargetZone.help"
-    },
-    "ActionPointPreserve": {
-      "name": "OpsiZoneFarm.ActionPointPreserve.name",
-      "help": "OpsiZoneFarm.ActionPointPreserve.help"
-    },
-    "UseActionPointBox": {
-      "name": "OpsiZoneFarm.UseActionPointBox.name",
-      "help": "OpsiZoneFarm.UseActionPointBox.help"
-    }
-  },
   "Daemon": {
     "_info": {
       "name": "Daemon._info.name",
@@ -2782,24 +2786,6 @@
       "Clear": "消除",
       "EnterPassword": "パスワードを入力してください",
       "ChooseFile": "ファイルを選択してください"
-    }
-  },
-  "EventClear": {
-    "_info": {
-      "name": "イベント開拓",
-      "help": ""
-    },
-    "StageFilter": {
-      "name": "ステージフィルター",
-      "help": "順番にステージをクリア、達成後に自動進行"
-    },
-    "MapAchievement": {
-      "name": "達成目標",
-      "help": "指定条件達成後に次のステージへ進む"
-    },
-    "LastStage": {
-      "name": "最後にクリアしたステージ",
-      "help": "自動更新。進捗を記録。イベント変更時はリセット"
     }
   }
 }
