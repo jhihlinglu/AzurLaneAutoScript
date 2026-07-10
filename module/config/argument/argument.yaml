@@ -748,6 +748,15 @@ OpsiHazard1Leveling:
   TargetZone:
     value: 0
     option: [ 0, 44, 22 ]
+OpsiZoneFarm:
+  TargetZone:
+    value: 0
+  ActionPointPreserve:
+    value: 0
+  UseActionPointBox:
+    type: checkbox
+    value: true
+    option: [ true, false ]
 
 # ==================== Tools ====================
 
