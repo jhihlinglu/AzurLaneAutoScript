@@ -43,8 +43,8 @@ summary {
 
 /* Idle: morphing blob */
 #pywebio-scope-header_status .sp-22__blob {
-    width: 26px;
-    height: 26px;
+    width: 18px;
+    height: 18px;
     background: linear-gradient(135deg, #00d4ff, #0050c8);
     box-shadow: 0 0 8px rgba(0, 212, 255, 0.5), 0 0 18px rgba(0, 80, 200, 0.2);
     flex-shrink: 0;
@@ -66,8 +66,8 @@ summary {
 /* Running: ripple rings + beat */
 #pywebio-scope-header_status .sp-05__stack {
     position: relative;
-    width: 28px;
-    height: 28px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
 
@@ -86,7 +86,7 @@ summary {
 
 #pywebio-scope-header_status .sp-05__core {
     position: absolute;
-    inset: 8px;
+    inset: 5px;
     border-radius: 50%;
     background: #ff0080;
     box-shadow: 0 0 8px rgba(255, 0, 128, 0.6), 0 0 18px rgba(255, 0, 128, 0.4);
@@ -114,6 +114,47 @@ summary {
 @keyframes status-idle-breathe {
     0%, 100% { opacity: 0.85; }
     50%       { opacity: 0.35; }
+}
+
+/* Warning state */
+#pywebio-scope-header_status .sp-warn {
+    width: 18px;
+    height: 18px;
+    background: #ffaa00;
+    border-radius: 3px;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(255,170,0,0.7);
+    animation: sp-warn-flash 0.75s ease-in-out infinite;
+}
+
+@keyframes sp-warn-flash {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.45; transform: scale(0.8); }
+}
+
+@keyframes status-warn-breathe {
+    0%, 100% { color: #ffaa00; text-shadow: 0 0 4px rgba(255,170,0,0.8); }
+    50%       { color: #ff6600; text-shadow: 0 0 10px rgba(255,100,0,0.5); }
+}
+
+/* Updating state */
+#pywebio-scope-header_status .sp-update {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0,212,255,0.2);
+    border-top-color: #00d4ff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: sp-update-spin 0.8s linear infinite;
+}
+
+@keyframes sp-update-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes status-update-breathe {
+    0%, 100% { color: #00d4ff; }
+    50%       { color: #0090b0; }
 }
 
 .btn-off {

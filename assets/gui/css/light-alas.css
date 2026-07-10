@@ -44,12 +44,14 @@ summary {
     background-color: #ffffff;
     border: 1.5px solid #b7d5c1;
     color: #1e2d25;
+    border-radius: 8px;
 }
 
 .btn-on {
     background-color: #2d6a4f;
     border: 1.5px solid #2d6a4f;
     color: white;
+    border-radius: 8px;
 }
 
 .btn-on:hover {
@@ -221,8 +223,8 @@ pre.rich-traceback-code {
 /* Idle: morphing shape */
 #pywebio-scope-header_status .lm-idle {
     display: inline-block;
-    width: 26px;
-    height: 26px;
+    width: 18px;
+    height: 18px;
     background: #52b788;
     border-radius: 50%;
     flex-shrink: 0;
@@ -244,14 +246,14 @@ pre.rich-traceback-code {
 /* Running: bouncing box */
 #pywebio-scope-header_status .lm-loader {
     position: relative;
-    width: 26px;
-    height: 33px;
+    width: 18px;
+    height: 24px;
     flex-shrink: 0;
 }
 
 #pywebio-scope-header_status .lm-box {
-    width: 26px;
-    height: 26px;
+    width: 18px;
+    height: 18px;
     background: #2d6a4f;
     position: absolute;
     top: 0;
@@ -262,18 +264,18 @@ pre.rich-traceback-code {
 
 @keyframes lm-animate {
     17%  { border-bottom-right-radius: 2px; }
-    25%  { transform: translateY(4.7px) rotate(22.5deg); }
-    50%  { transform: translateY(9.4px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 20px; }
-    75%  { transform: translateY(4.7px) rotate(67.5deg); }
+    25%  { transform: translateY(3.2px) rotate(22.5deg); }
+    50%  { transform: translateY(6.5px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 14px; }
+    75%  { transform: translateY(3.2px) rotate(67.5deg); }
     100% { transform: translateY(0) rotate(90deg); }
 }
 
 #pywebio-scope-header_status .lm-shadow {
-    width: 26px;
+    width: 18px;
     height: 3px;
     background: rgba(45, 106, 79, 0.2);
     position: absolute;
-    top: 30px;
+    top: 21px;
     left: 0;
     border-radius: 50%;
     animation: lm-shadow 0.5s linear infinite;
@@ -292,6 +294,46 @@ pre.rich-traceback-code {
 @keyframes lm-idle-breathe {
     0%, 100% { opacity: 0.85; }
     50%       { opacity: 0.35; }
+}
+
+/* Warning state */
+#pywebio-scope-header_status .lm-warn {
+    width: 18px;
+    height: 18px;
+    background: #d97706;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: lm-warn-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes lm-warn-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217,119,6,0.5); }
+    50%       { transform: scale(0.85); box-shadow: 0 0 0 5px rgba(217,119,6,0); }
+}
+
+@keyframes lm-warn-breathe {
+    0%, 100% { color: #b45309; }
+    50%       { color: #d97706; }
+}
+
+/* Updating state */
+#pywebio-scope-header_status .lm-update {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(45,106,79,0.2);
+    border-top-color: #2d6a4f;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: lm-update-spin 0.8s linear infinite;
+}
+
+@keyframes lm-update-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes lm-update-breathe {
+    0%, 100% { color: #2d6a4f; }
+    50%       { color: #52b788; }
 }
 
 /* === Stage Tag Display === */

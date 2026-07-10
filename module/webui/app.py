@@ -241,9 +241,25 @@ class AlasGUI(Frame):
                     '</div>'
                 )
             elif state == 3:
-                put_loading_text(t("Gui.Status.Warning"), shape="grow", color="warning")
+                put_html(
+                    f'<div {_grid}>'
+                    '<div class="sp-warn"></div>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'animation:status-warn-breathe 0.75s ease-in-out infinite">'
+                    f'{t("Gui.Status.Warning")}</p>'
+                    '</div>'
+                )
             elif state == 4:
-                put_loading_text(t("Gui.Status.Updating"), shape="grow", color="success")
+                put_html(
+                    f'<div {_grid}>'
+                    '<div class="sp-update"></div>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'animation:status-update-breathe 1.5s ease-in-out infinite">'
+                    f'{t("Gui.Status.Updating")}</p>'
+                    '</div>'
+                )
         else:
             _grid = 'style="display:grid;grid-auto-flow:column;grid-template-columns:auto 12px 1fr;align-items:center;height:100%"'
             if state == 1:
@@ -270,9 +286,25 @@ class AlasGUI(Frame):
                     '</div>'
                 )
             elif state == 3:
-                put_loading_text(t("Gui.Status.Warning"), shape="grow", color="warning")
+                put_html(
+                    f'<div {_grid}>'
+                    '<div class="lm-warn"></div>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'animation:lm-warn-breathe 0.75s ease-in-out infinite">'
+                    f'{t("Gui.Status.Warning")}</p>'
+                    '</div>'
+                )
             elif state == 4:
-                put_loading_text(t("Gui.Status.Updating"), shape="grow", color="success")
+                put_html(
+                    f'<div {_grid}>'
+                    '<div class="lm-update"></div>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'animation:lm-update-breathe 1.5s ease-in-out infinite">'
+                    f'{t("Gui.Status.Updating")}</p>'
+                    '</div>'
+                )
 
     @classmethod
     def set_theme(cls, theme="default") -> None:
