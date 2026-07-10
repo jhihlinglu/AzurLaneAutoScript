@@ -451,7 +451,7 @@ pre.rich-traceback-code {
 #pywebio-scope-waiting {
     display: grid;
     grid-auto-flow: row;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto auto;
 }
 
 #pywebio-scope-running > p,
@@ -466,7 +466,14 @@ pre.rich-traceback-code {
 #pywebio-scope-pending_tasks,
 #pywebio-scope-waiting_tasks {
     overflow-y: auto;
-    height: 100%;
+}
+
+#pywebio-scope-running_tasks {
+    min-height: 5rem;
+}
+
+#pywebio-scope-waiting_tasks {
+    max-height: 14rem;
 }
 
 #pywebio-scope-logs {
