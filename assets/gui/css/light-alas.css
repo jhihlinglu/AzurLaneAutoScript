@@ -13,7 +13,7 @@
 
 .btn-off {
     background-color: #ffffff;
-    border: 1.5px solid #d0d7de;
+    border: 1.5px solid #b0b9c2;
     color: #24292f;
 }
 
@@ -30,7 +30,7 @@
 
 .btn-navigator {
     background-color: #ffffff;
-    border-bottom-color: #eaecef !important;
+    border-bottom-color: #d0d7de !important;
 }
 
 .btn-navigator:hover {
@@ -40,11 +40,11 @@
 
 /* === Separators === */
 .hr-group {
-    background-color: #d0d7de !important;
+    background-color: #b0b9c2 !important;
 }
 
 .hr-task-group-line {
-    border-top-color: #d0d7de;
+    border-top-color: #b0b9c2;
     border-top-width: 1.5px;
 }
 
@@ -94,12 +94,12 @@ select {
 }
 
 textarea {
-    border: 1.5px solid #d0d7de;
+    border: 1.5px solid #b0b9c2;
     border-radius: 4px;
 }
 
 .CodeMirror-wrap {
-    border: 1.5px solid #d0d7de;
+    border: 1.5px solid #b0b9c2;
     border-radius: 4px;
 }
 
@@ -111,7 +111,7 @@ textarea {
 /* === Log === */
 .container-log {
     background-color: #f6f8fa !important;
-    border: 1.5px solid #d0d7de !important;
+    border: 1.5px solid #b0b9c2 !important;
 }
 
 pre.rich-traceback-code {
@@ -121,14 +121,15 @@ pre.rich-traceback-code {
 
 /* === Layout Regions === */
 #pywebio-scope-content {
-    background-color: #f0f2f5;
+    background-color: #e8ebef;
 }
 
 [id^="pywebio-scope-group_"] {
     background-color: #ffffff;
-    border: 1.5px solid #d0d7de;
+    border: 1.5px solid #b0b9c2;
+    border-left: 3px solid #4e4c97;
     border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
 }
 
 #pywebio-scope-daemon-overview [id^="pywebio-scope-group_"] {
@@ -139,17 +140,17 @@ pre.rich-traceback-code {
 
 #pywebio-scope-aside {
     background-color: #ffffff;
-    border-right: 2px solid #d0d7de;
+    border-right: 2px solid #4e4c97;
 }
 
 #pywebio-scope-menu {
     background-color: #ffffff;
-    border-right: 1.5px solid #d0d7de;
+    border-right: 2px solid #b0b9c2;
     box-shadow: none;
 }
 
 #pywebio-scope-navigator {
-    border: 1.5px solid #d0d7de;
+    border: 1.5px solid #b0b9c2;
     border-radius: 6px;
     overflow: hidden;
 }
@@ -162,13 +163,13 @@ pre.rich-traceback-code {
 #pywebio-scope-waiting,
 #pywebio-scope-daemon-overview #pywebio-scope-groups {
     background-color: #ffffff;
-    border: 1.5px solid #d0d7de;
+    border: 1.5px solid #b0b9c2;
     border-radius: 6px;
 }
 
 #pywebio-scope-header {
     background-color: #ffffff;
-    border-bottom: 2px solid #d0d7de;
+    border-bottom: 2px solid #4e4c97;
     box-shadow: none;
 }
 
@@ -180,5 +181,29 @@ pre.rich-traceback-code {
 
 /* === Arg Row Separator === */
 [id^="pywebio-scope-arg_container-"] {
-    border-bottom-color: #eaecef;
+    border-bottom-color: #d0d7de;
+}
+
+/* === Stage Tag Display === */
+.ec-stage-display {
+    background: #f4f6ff;
+    border-left-color: #4e4c97;
+    box-shadow: inset 3px 0 8px rgba(78, 76, 151, 0.07);
+}
+
+.ec-stage-tag {
+    background: rgba(78, 76, 151, 0.08);
+    border-color: #4e4c97;
+    color: #4e4c97;
+    box-shadow: 0 0 3px rgba(78, 76, 151, 0.15);
+}
+
+.ec-stage-tag:hover {
+    background: rgba(78, 76, 151, 0.18);
+    box-shadow: 0 0 6px rgba(78, 76, 151, 0.4);
+}
+
+.ec-stage-tag-flash {
+    background: rgba(78, 76, 151, 0.45) !important;
+    box-shadow: 0 0 10px rgba(78, 76, 151, 0.9) !important;
 }

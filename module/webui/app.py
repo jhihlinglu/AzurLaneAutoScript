@@ -285,6 +285,19 @@ class AlasGUI(Frame):
                         onclick=_onclick,
                     ).style(f"--menu-{task}--").style(f"padding-left: 0.75rem")
 
+        run_js(
+            "(function(){"
+            "var m=document.getElementById('pywebio-scope-menu');"
+            "if(!m)return;"
+            "m.addEventListener('toggle',function(e){"
+            "if(e.target.tagName==='DETAILS'&&e.target.open){"
+            "m.querySelectorAll('details').forEach(function(d){"
+            "if(d!==e.target)d.open=false;"
+            "});"
+            "}"
+            "},true);"
+            "})();"
+        )
         self.alas_overview()
 
     @use_scope("content", clear=True)
@@ -392,33 +405,68 @@ class AlasGUI(Frame):
             for output in output_list:
                 output.show()
 
-        if task == 'EventClear' and group_name == 'EventClear':
-            from module.webui.widgets import _ec_stage_map
-            import json as _json
-            _sm = _ec_stage_map()
-            _sm_json = _json.dumps(_sm, ensure_ascii=False)
-            _did = 'ec-stage-display-EventClear_EventClear_Event'
-            _sid = 'pywebio-scope-arg_container-select-EventClear_EventClear_Event'
-            run_js(
-                f'(function(){{'
-                f'var sm={_sm_json};'
-                f'var sc=document.getElementById("{_sid}");'
-                f'if(!sc)return;'
-                f'var sel=sc.querySelector("select");'
-                f'if(!sel)return;'
-                f'var dv=document.getElementById("{_did}");'
-                f'if(!dv){{'
-                f'dv=document.createElement("div");'
-                f'dv.id="{_did}";'
-                f'dv.style.cssText="padding:4px 12px;background:#eef6fb;border-left:3px solid #5b9bd5;border-radius:3px;font-size:0.85em;color:#2c5f8a;letter-spacing:0.05em;display:none;";'
-                f'sc.parentNode.insertBefore(dv,sc.nextSibling);'
-                f'}}'
-                f'function clean(v){{return v.replace(/^"|"$/g,"");}}'
-                f'function upd(v){{var k=clean(v);dv.textContent=sm[k]||"";dv.style.display=sm[k]?"block":"none";}}'
-                f'sel.addEventListener("change",function(){{upd(this.value);}});'
-                f'upd(sel.value);'
-                f'}})();'
-            )
+        _stage_inject_targets = [
+            ('EventClear', 'EventClear', 'EventClear_EventClear_Event', None),
+            ('Event',      'Campaign',   'Event_Campaign_Event',        'Event_Campaign_Name'),
+            ('Event2',     'Campaign',   'Event2_Campaign_Event',       'Event2_Campaign_Name'),
+        ]
+        for _t_task, _t_group, _arg_key, _fill_key in _stage_inject_targets:
+            if task == _t_task and group_name == _t_group:
+                from module.webui.widgets import _ec_stage_map
+                import json as _json
+                _sm = _ec_stage_map()
+                _sm_json = _json.dumps(_sm, ensure_ascii=False)
+                _did = f'ec-stage-display-{_arg_key}'
+                _sid = f'pywebio-scope-arg_container-select-{_arg_key}'
+                _fill_scope = f'pywebio-scope-arg_container-input-{_fill_key}' if _fill_key else ''
+                _click_js = (
+                    f'var el=document.getElementById("{_fill_scope}");'
+                    f'var inp=el?el.querySelector("input"):null;'
+                    f'if(inp){{'
+                    f'inp.value=s;'
+                    f'inp.dispatchEvent(new Event("input",{{bubbles:true}}));'
+                    f'inp.dispatchEvent(new Event("change",{{bubbles:true}}));'
+                    f'sp.classList.add("ec-stage-tag-flash");'
+                    f'setTimeout(function(){{sp.classList.remove("ec-stage-tag-flash");}},250);'
+                    f'}}'
+                ) if _fill_key else ''
+                _cursor = 'cursor:pointer;' if _fill_key else ''
+                run_js(
+                    f'(function(){{'
+                    f'var sm={_sm_json};'
+                    f'var sc=document.getElementById("{_sid}");'
+                    f'if(!sc)return;'
+                    f'var sel=sc.querySelector("select");'
+                    f'if(!sel)return;'
+                    f'var dv=document.getElementById("{_did}");'
+                    f'if(!dv){{'
+                    f'dv=document.createElement("div");'
+                    f'dv.id="{_did}";'
+                    f'dv.className="ec-stage-display";'
+                    f'dv.style.display="none";'
+                    f'sc.parentNode.insertBefore(dv,sc.nextSibling);'
+                    f'}}'
+                    f'function clean(v){{return v.replace(/^"|"$/g,"");}}'
+                    f'function upd(v){{'
+                    f'var k=clean(v);'
+                    f'dv.innerHTML="";'
+                    f'if(!sm[k]){{dv.style.display="none";return;}}'
+                    f'sm[k].split(" ").forEach(function(s){{'
+                    f'if(!s)return;'
+                    f'var sp=document.createElement("span");'
+                    f'sp.textContent=s;'
+                    f'sp.className="ec-stage-tag";'
+                    f'sp.style.cssText="{_cursor}";'
+                    f'{_click_js and f"sp.onclick=function(){{{_click_js}}};"}'
+                    f'dv.appendChild(sp);'
+                    f'}});'
+                    f'dv.style.display="flex";'
+                    f'}}'
+                    f'sel.addEventListener("change",function(){{upd(this.value);}});'
+                    f'upd(sel.value);'
+                    f'}})();'
+                )
+                break
 
         return len(output_list)
 
@@ -1245,6 +1293,19 @@ class AlasGUI(Frame):
 
         aside = get_localstorage("aside")
         self.show()
+
+        # Theme toggle in header
+        def _toggle_theme():
+            new_theme = "default" if self.theme == "dark" else "dark"
+            self.set_theme(new_theme)
+            run_js("location.reload()")
+
+        with use_scope("header_theme"):
+            _icon = "☀️" if self.theme == "dark" else "🌙"
+            put_buttons(
+                [{"label": _icon, "value": "toggle", "color": "menu"}],
+                onclick=lambda _: _toggle_theme(),
+            )
 
         # init config watcher
         self._init_alas_config_watcher()

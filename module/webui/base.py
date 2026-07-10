@@ -67,6 +67,7 @@ class Frame(Base):
                 put_text("Alas").style("--header-text--"),
                 put_scope("header_status"),
                 put_scope("header_title"),
+                put_scope("header_theme"),
             ],
         )
         put_scope(

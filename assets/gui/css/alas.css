@@ -32,14 +32,15 @@ footer {
 
 .btn-menu {
     font-weight: 400;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     background-color: transparent;
-    padding: .125rem .75rem;
+    padding: .3rem .75rem;
     border-radius: 0;
     border: 0 solid;
-    transition: border .05s ease-in-out, padding .05s ease-in-out;
+    transition: border .05s ease-in-out, padding .05s ease-in-out, color .1s ease-in-out;
     white-space: pre-wrap;
     text-align: left;
+    letter-spacing: 0.04em;
 }
 
 .btn-menu:hover,
@@ -272,13 +273,13 @@ pre.rich-traceback-code {
     padding-right: .5rem;
     padding-top: 1.2rem;
     overflow-y: auto;
-    width: 12rem;
+    width: 14rem;
     flex-shrink: 0;
 }
 
 #pywebio-scope-content {
     overflow: auto;
-    padding: .625rem;
+    padding: 1rem;
     flex-grow: 1;
 }
 
@@ -286,7 +287,8 @@ pre.rich-traceback-code {
     z-index: 100;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 4.4rem 4rem auto 1fr !important;
+    grid-template-columns: 4.4rem 4rem auto 1fr auto !important;
+    min-height: 3.75rem;
 }
 
 *[style*="--header-icon--"] {
@@ -302,6 +304,28 @@ pre.rich-traceback-code {
 
 #pywebio-scope-header_title {
     margin: auto;
+}
+
+#pywebio-scope-header_theme {
+    display: flex;
+    align-items: center;
+    padding: 0 .75rem;
+}
+
+#pywebio-scope-header_theme button {
+    font-size: 1.25rem;
+    padding: .1rem .4rem;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 0.75;
+    transition: opacity 0.15s, transform 0.15s;
+    line-height: 1;
+}
+
+#pywebio-scope-header_theme button:hover {
+    opacity: 1;
+    transform: scale(1.15);
 }
 
 #pywebio-scope-header_title > p {
@@ -342,7 +366,7 @@ pre.rich-traceback-code {
     display: grid;
     grid-auto-flow: column;
 
-    grid-template-columns: 1fr minmax(25rem, 5fr) 2fr;
+    grid-template-columns: minmax(10rem, 1fr) minmax(28rem, 5fr) minmax(12rem, 1.5fr);
 }
 
 #pywebio-scope-group__info > p {
@@ -351,22 +375,24 @@ pre.rich-traceback-code {
 }
 
 [id^="pywebio-scope-group_"] {
-    margin-top: .625rem;
-    margin-bottom: .625rem;
-    padding: 1rem 1.25rem;
+    margin-top: 1.125rem;
+    margin-bottom: 1.125rem;
+    padding: 1.75rem 2rem;
 }
 
 [id^="pywebio-scope-group_"] > p {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 .25rem 0 .25rem !important;
-    letter-spacing: 0.01em;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 .25rem .25rem .25rem !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 [id^="pywebio-scope-group_"] > p + p {
-    font-size: .80rem;
+    font-size: .825rem;
     font-weight: 400;
-    margin: .2rem .25rem .2rem .25rem !important;
+    margin: .3rem .25rem .4rem .25rem !important;
+    letter-spacing: 0.02em;
 }
 
 #pywebio-scope-groups {
@@ -378,7 +404,7 @@ pre.rich-traceback-code {
 }
 
 #pywebio-scope-navigator {
-    margin: .5rem 1rem .5rem;
+    margin: .875rem 1rem;
     height: min-content;
     max-width: 15rem;
 }
@@ -397,8 +423,8 @@ pre.rich-traceback-code {
 #pywebio-scope-log,
 #pywebio-scope-daemon-overview #pywebio-scope-groups {
     font-weight: 500;
-    margin: 0.3125rem;
-    padding: 0.625rem;
+    margin: 0.5rem;
+    padding: 0.875rem;
 }
 
 #pywebio-scope-scheduler-bar,
@@ -457,7 +483,7 @@ pre.rich-traceback-code {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr auto;
-    margin: .125rem .625rem .125rem .375rem;
+    margin: .25rem .75rem .25rem .5rem;
 }
 
 #pywebio-scope-daemon-overview {
@@ -484,7 +510,7 @@ pre.rich-traceback-code {
 [id^="pywebio-scope-arg_container-"] {
     display: grid;
     margin: 0;
-    padding: .25rem 0;
+    padding: .5rem 0;
     border-bottom: 1px solid;
 }
 
@@ -499,10 +525,11 @@ pre.rich-traceback-code {
 }
 
 *[style*="--arg-title--"] {
-    font-size: 0.9rem;
+    font-size: 0.925rem;
     font-weight: 500;
     margin: 0 .25rem !important;
     overflow-wrap: break-word;
+    letter-spacing: 0.02em;
 }
 
 *[style*="--arg-help--"] {
@@ -539,4 +566,25 @@ pre.rich-traceback-code {
     width: 1.5rem;
     height: 1.5rem;
     border: .2em solid currentColor;
+}
+
+/* === Stage Tag Display === */
+.ec-stage-display {
+    padding: 4px 10px;
+    border-left: 3px solid;
+    border-radius: 2px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+}
+
+.ec-stage-tag {
+    display: inline-block;
+    padding: 2px 9px;
+    border: 1px solid;
+    border-radius: 2px;
+    font-size: 0.78em;
+    letter-spacing: 0.07em;
+    transition: background 0.1s, box-shadow 0.1s;
+    user-select: none;
 }
