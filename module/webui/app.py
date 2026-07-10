@@ -211,8 +211,9 @@ class AlasGUI(Frame):
             return
         clear()
 
+        _p = 'style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;"'
         if self.theme == "dark":
-            _grid = 'style="display:grid;grid-auto-flow:column;grid-template-columns:auto 6px 1fr;align-items:center"'
+            _grid = 'style="display:grid;grid-auto-flow:column;grid-template-columns:auto 12px 1fr;align-items:center;height:100%"'
             if state == 1:
                 put_html(
                     f'<div {_grid}>'
@@ -223,8 +224,8 @@ class AlasGUI(Frame):
                     '<div class="sp-05__core"></div>'
                     '</div>'
                     '<div></div>'
-                    f'<p style="white-space:pre-wrap;color:#ff0080;'
-                    f'text-shadow:0 0 3px #ff0080,0 0 10px rgba(255,0,128,0.7);'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'color:#ff0080;text-shadow:0 0 3px #ff0080,0 0 10px rgba(255,0,128,0.7);'
                     f'animation:status-run-breathe 1.8s ease-in-out infinite">'
                     f'{t("Gui.Status.Running")}</p>'
                     '</div>'
@@ -234,8 +235,8 @@ class AlasGUI(Frame):
                     f'<div {_grid}>'
                     '<div class="sp-22__blob"></div>'
                     '<div></div>'
-                    f'<p style="white-space:pre-wrap;color:#3a6a8a;'
-                    f'animation:status-idle-breathe 3.5s ease-in-out infinite">'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'color:#3a6a8a;animation:status-idle-breathe 3.5s ease-in-out infinite">'
                     f'{t("Gui.Status.Inactive")}</p>'
                     '</div>'
                 )
@@ -244,10 +245,30 @@ class AlasGUI(Frame):
             elif state == 4:
                 put_loading_text(t("Gui.Status.Updating"), shape="grow", color="success")
         else:
+            _grid = 'style="display:grid;grid-auto-flow:column;grid-template-columns:auto 12px 1fr;align-items:center;height:100%"'
             if state == 1:
-                put_loading_text(t("Gui.Status.Running"), color="success")
+                put_html(
+                    f'<div {_grid}>'
+                    '<div class="lm-loader">'
+                    '<div class="lm-box"></div>'
+                    '<div class="lm-shadow"></div>'
+                    '</div>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'color:#2a7a50;animation:lm-run-breathe 1.5s ease-in-out infinite">'
+                    f'{t("Gui.Status.Running")}</p>'
+                    '</div>'
+                )
             elif state == 2:
-                put_loading_text(t("Gui.Status.Inactive"), color="secondary", fill=True)
+                put_html(
+                    f'<div {_grid}>'
+                    '<span class="lm-idle"></span>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
+                    f'color:#4a7a60;animation:lm-idle-breathe 3.5s ease-in-out infinite">'
+                    f'{t("Gui.Status.Inactive")}</p>'
+                    '</div>'
+                )
             elif state == 3:
                 put_loading_text(t("Gui.Status.Warning"), shape="grow", color="warning")
             elif state == 4:

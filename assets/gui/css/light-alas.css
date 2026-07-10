@@ -184,6 +184,84 @@ pre.rich-traceback-code {
     border-bottom-color: #d0d7de;
 }
 
+/* === Status Spinners (Light) === */
+
+/* Idle: morphing shape */
+#pywebio-scope-header_status .lm-idle {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: #2a7a50;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: lm-ellipse 2s linear infinite;
+}
+
+@keyframes lm-ellipse {
+    0%    { border-radius: 50%; }
+    12.5% { border-radius: 0 50% 50% 50%; transform: rotate(45deg); }
+    25%   { border-radius: 0 0 50% 50%;   transform: rotate(90deg); }
+    37.5% { border-radius: 0 0 0 50%;     transform: rotate(135deg); }
+    50%   { border-radius: 0;             transform: rotate(180deg); }
+    62.5% { border-radius: 50% 0 0 0;    transform: rotate(225deg); }
+    75%   { border-radius: 50% 50% 0 0;  transform: rotate(270deg); }
+    87.5% { border-radius: 50% 50% 50% 0; transform: rotate(315deg); }
+    100%  { border-radius: 50%;           transform: rotate(360deg); }
+}
+
+/* Running: bouncing box */
+#pywebio-scope-header_status .lm-loader {
+    position: relative;
+    width: 26px;
+    height: 33px;
+    flex-shrink: 0;
+}
+
+#pywebio-scope-header_status .lm-box {
+    width: 26px;
+    height: 26px;
+    background: #2a7a50;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 2px;
+    animation: lm-animate 0.5s linear infinite;
+}
+
+@keyframes lm-animate {
+    17%  { border-bottom-right-radius: 2px; }
+    25%  { transform: translateY(4.7px) rotate(22.5deg); }
+    50%  { transform: translateY(9.4px) scale(1, .9) rotate(45deg); border-bottom-right-radius: 20px; }
+    75%  { transform: translateY(4.7px) rotate(67.5deg); }
+    100% { transform: translateY(0) rotate(90deg); }
+}
+
+#pywebio-scope-header_status .lm-shadow {
+    width: 26px;
+    height: 3px;
+    background: rgba(42, 122, 80, 0.2);
+    position: absolute;
+    top: 30px;
+    left: 0;
+    border-radius: 50%;
+    animation: lm-shadow 0.5s linear infinite;
+}
+
+@keyframes lm-shadow {
+    50% { transform: scale(1.2, 1); }
+}
+
+/* Status text */
+@keyframes lm-run-breathe {
+    0%, 100% { color: #2a7a50; }
+    50%       { color: #1c5e3a; }
+}
+
+@keyframes lm-idle-breathe {
+    0%, 100% { opacity: 0.9; }
+    50%       { opacity: 0.4; }
+}
+
 /* === Stage Tag Display === */
 .ec-stage-display {
     background: #f4f6ff;
