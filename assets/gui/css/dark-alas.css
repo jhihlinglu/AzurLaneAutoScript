@@ -39,6 +39,83 @@ summary {
     text-shadow: 0 0 2px #d4ff00, 0 0 10px rgba(212, 255, 0, 0.8);
 }
 
+/* === Status Spinners (Dark) === */
+
+/* Idle: morphing blob */
+#pywebio-scope-header_status .sp-22__blob {
+    width: 26px;
+    height: 26px;
+    background: linear-gradient(135deg, #00d4ff, #0050c8);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.5), 0 0 18px rgba(0, 80, 200, 0.2);
+    flex-shrink: 0;
+    animation: sp-22-morph 3s ease-in-out infinite, sp-22-spin 6s linear infinite;
+}
+
+@keyframes sp-22-morph {
+    0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% }
+    20%     { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60% }
+    40%     { border-radius: 70% 30% 50% 50% / 30% 70% 60% 40% }
+    60%     { border-radius: 40% 60% 30% 70% / 70% 40% 50% 60% }
+    80%     { border-radius: 50% 50% 60% 40% / 40% 50% 70% 60% }
+}
+
+@keyframes sp-22-spin {
+    to { transform: rotate(360deg) }
+}
+
+/* Running: ripple rings + beat */
+#pywebio-scope-header_status .sp-05__stack {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+#pywebio-scope-header_status .sp-05__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1.5px solid #ff0080;
+    opacity: 0;
+    animation: sp-05-ripple 1.8s ease-out infinite;
+}
+
+#pywebio-scope-header_status .sp-05__ring:nth-child(1) { animation-delay: 0s; }
+#pywebio-scope-header_status .sp-05__ring:nth-child(2) { animation-delay: 0.6s; }
+#pywebio-scope-header_status .sp-05__ring:nth-child(3) { animation-delay: 1.2s; }
+
+#pywebio-scope-header_status .sp-05__core {
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: #ff0080;
+    box-shadow: 0 0 8px rgba(255, 0, 128, 0.6), 0 0 18px rgba(255, 0, 128, 0.4);
+    animation: sp-05-beat 1.8s ease-in-out infinite;
+}
+
+@keyframes sp-05-ripple {
+    0%   { transform: scale(0.3); opacity: 0.9; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes sp-05-beat {
+    0%,100% { transform: scale(1); }
+    15%     { transform: scale(1.25); }
+    30%     { transform: scale(0.95); }
+    45%     { transform: scale(1.1); }
+}
+
+/* Status text */
+@keyframes status-run-breathe {
+    0%, 100% { text-shadow: 0 0 3px #ff0080, 0 0 10px rgba(255, 0, 128, 0.8); opacity: 1; }
+    50%       { text-shadow: 0 0 8px #ff0080, 0 0 22px rgba(255, 0, 128, 0.3); opacity: 0.7; }
+}
+
+@keyframes status-idle-breathe {
+    0%, 100% { opacity: 0.85; }
+    50%       { opacity: 0.35; }
+}
+
 .btn-off {
     background-color: #0c1020;
     border: 1.5px solid #1a3050;

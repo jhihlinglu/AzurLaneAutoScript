@@ -211,14 +211,47 @@ class AlasGUI(Frame):
             return
         clear()
 
-        if state == 1:
-            put_loading_text(t("Gui.Status.Running"), color="success")
-        elif state == 2:
-            put_loading_text(t("Gui.Status.Inactive"), color="secondary", fill=True)
-        elif state == 3:
-            put_loading_text(t("Gui.Status.Warning"), shape="grow", color="warning")
-        elif state == 4:
-            put_loading_text(t("Gui.Status.Updating"), shape="grow", color="success")
+        if self.theme == "dark":
+            _grid = 'style="display:grid;grid-auto-flow:column;grid-template-columns:auto 6px 1fr;align-items:center"'
+            if state == 1:
+                put_html(
+                    f'<div {_grid}>'
+                    '<div class="sp-05__stack">'
+                    '<div class="sp-05__ring"></div>'
+                    '<div class="sp-05__ring"></div>'
+                    '<div class="sp-05__ring"></div>'
+                    '<div class="sp-05__core"></div>'
+                    '</div>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;color:#ff0080;'
+                    f'text-shadow:0 0 3px #ff0080,0 0 10px rgba(255,0,128,0.7);'
+                    f'animation:status-run-breathe 1.8s ease-in-out infinite">'
+                    f'{t("Gui.Status.Running")}</p>'
+                    '</div>'
+                )
+            elif state == 2:
+                put_html(
+                    f'<div {_grid}>'
+                    '<div class="sp-22__blob"></div>'
+                    '<div></div>'
+                    f'<p style="white-space:pre-wrap;color:#3a6a8a;'
+                    f'animation:status-idle-breathe 3.5s ease-in-out infinite">'
+                    f'{t("Gui.Status.Inactive")}</p>'
+                    '</div>'
+                )
+            elif state == 3:
+                put_loading_text(t("Gui.Status.Warning"), shape="grow", color="warning")
+            elif state == 4:
+                put_loading_text(t("Gui.Status.Updating"), shape="grow", color="success")
+        else:
+            if state == 1:
+                put_loading_text(t("Gui.Status.Running"), color="success")
+            elif state == 2:
+                put_loading_text(t("Gui.Status.Inactive"), color="secondary", fill=True)
+            elif state == 3:
+                put_loading_text(t("Gui.Status.Warning"), shape="grow", color="warning")
+            elif state == 4:
+                put_loading_text(t("Gui.Status.Updating"), shape="grow", color="success")
 
     @classmethod
     def set_theme(cls, theme="default") -> None:
