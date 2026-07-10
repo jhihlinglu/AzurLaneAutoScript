@@ -255,7 +255,7 @@ class AlasGUI(Frame):
                     '</div>'
                     '<div></div>'
                     f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
-                    f'color:#2a7a50;animation:lm-run-breathe 1.5s ease-in-out infinite">'
+                    f'color:#1b4332;animation:lm-run-breathe 1.5s ease-in-out infinite">'
                     f'{t("Gui.Status.Running")}</p>'
                     '</div>'
                 )
@@ -265,7 +265,7 @@ class AlasGUI(Frame):
                     '<span class="lm-idle"></span>'
                     '<div></div>'
                     f'<p style="white-space:pre-wrap;margin:0;font-size:1.05rem;font-weight:500;align-self:center;'
-                    f'color:#4a7a60;animation:lm-idle-breathe 3.5s ease-in-out infinite">'
+                    f'color:#5f8070;animation:lm-idle-breathe 3.5s ease-in-out infinite">'
                     f'{t("Gui.Status.Inactive")}</p>'
                     '</div>'
                 )
@@ -1360,6 +1360,26 @@ class AlasGUI(Frame):
                 [{"label": _icon, "value": "toggle", "color": "menu"}],
                 onclick=lambda _: _toggle_theme(),
             )
+        if self.theme == "dark":
+            run_js("""setTimeout(function(){
+var btn=document.querySelector('#pywebio-scope-header_theme button');
+if(!btn)return;
+btn.style.fontSize='0';btn.style.lineHeight='0';
+btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="4.5" fill="#fbbf24"/><line x1="12" y1="1.5" x2="12" y2="4" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="22.5" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/><line x1="1.5" y1="12" x2="4" y2="12" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="12" x2="22.5" y2="12" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/><line x1="4.93" y1="4.93" x2="6.7" y2="6.7" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/><line x1="17.3" y1="17.3" x2="19.07" y2="19.07" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/><line x1="19.07" y1="4.93" x2="17.3" y2="6.7" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/><line x1="6.7" y1="17.3" x2="4.93" y2="19.07" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/></svg>';
+var s=document.createElement('style');
+s.textContent='@keyframes _sun_spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}#pywebio-scope-header_theme button svg{animation:_sun_spin 12s linear infinite;display:block;}';
+document.head.appendChild(s);
+},100);""")
+        else:
+            run_js("""setTimeout(function(){
+var btn=document.querySelector('#pywebio-scope-header_theme button');
+if(!btn)return;
+btn.style.fontSize='0';btn.style.lineHeight='0';
+btn.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="#5c6278" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><circle cx="18.5" cy="5.2" r="0.9" fill="#5c6278"/><circle cx="15.8" cy="3.2" r="0.55" fill="#5c6278"/></svg>';
+var s=document.createElement('style');
+s.textContent='@keyframes _moon_glow{0%,100%{filter:brightness(1) drop-shadow(0 0 1px rgba(92,98,120,.3))}50%{filter:brightness(1.2) drop-shadow(0 0 5px rgba(92,98,120,.55))}}#pywebio-scope-header_theme button svg{animation:_moon_glow 3.5s ease-in-out infinite;display:block;}';
+document.head.appendChild(s);
+},100);""")
 
         # init config watcher
         self._init_alas_config_watcher()
