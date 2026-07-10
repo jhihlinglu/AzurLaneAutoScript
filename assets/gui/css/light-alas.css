@@ -228,7 +228,7 @@ pre.rich-traceback-code {
     background: #52b788;
     border-radius: 50%;
     flex-shrink: 0;
-    animation: lm-ellipse 2s linear infinite;
+    animation: lm-ellipse 3s ease-in-out infinite;
 }
 
 @keyframes lm-ellipse {
