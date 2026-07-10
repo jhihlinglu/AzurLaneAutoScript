@@ -1,3 +1,4 @@
+/* === Accent & Menu === */
 .btn-menu:hover,
 .btn-menu-active {
     border-color: #4e4c97;
@@ -11,53 +12,61 @@
 }
 
 .btn-off {
-    background-color: white;
-    border: 1px solid lightgrey;
+    background-color: #ffffff;
+    border: 1.5px solid #d0d7de;
+    color: #24292f;
 }
 
 .btn-on {
     background-color: #4e4c97;
-    border: 1px solid lightgrey;
+    border: 1.5px solid #4e4c97;
     color: white;
 }
 
 .btn-on:hover {
     color: white;
+    background-color: #3d3b7a;
 }
 
 .btn-navigator {
-    background-color: white;
+    background-color: #ffffff;
+    border-bottom-color: #eaecef !important;
 }
 
 .btn-navigator:hover {
     color: #4e4c97;
+    background-color: #f6f8fa;
 }
 
+/* === Separators === */
 .hr-group {
-    background-color: #eaecef !important;
+    background-color: #d0d7de !important;
 }
 
 .hr-task-group-line {
-    border-top-color: #d0d0d0;
+    border-top-color: #d0d7de;
+    border-top-width: 1.5px;
 }
 
 .hr-task-group-text {
-    color: #777777;
+    color: #57606a;
+    font-size: 0.8rem;
 }
 
+/* === Form Controls === */
 .form-control,
 .bootstrap-select > select {
-    border-bottom: .125rem solid #4e4c97;
+    border-bottom: 1.5px solid #4e4c97;
 }
 
 .form-control:focus {
-    background-color: white;
+    background-color: #ffffff;
     border-color: #4e4c97;
-    box-shadow: 0 0.06rem 0 #4e4c97;
+    box-shadow: 0 0.1rem 0 #4e4c97;
 }
 
 input[type="checkbox"] {
-    accent-color: #7a77bb;
+    accent-color: #4e4c97;
 }
 
 select {
@@ -72,11 +81,11 @@ select {
 
 .state-bold > select {
     font-weight: bold;
-    color: #7a77bb;
+    color: #4e4c97;
 }
 
 .state-light > select {
-    color: #777777;
+    color: #57606a;
 }
 
 [id^="pywebio-scope-arg_stored-stored-value-"] > div > input {
@@ -85,52 +94,64 @@ select {
 }
 
 textarea {
-    border: 1px solid lightgrey;
+    border: 1.5px solid #d0d7de;
+    border-radius: 4px;
 }
 
 .CodeMirror-wrap {
-    border: 1px solid lightgrey;
+    border: 1.5px solid #d0d7de;
+    border-radius: 4px;
 }
 
+/* === Icons === */
 .aside-icon > path {
-    fill: #2c2c2c;
+    fill: #24292f;
 }
 
+/* === Log === */
 .container-log {
-    background-color: white !important;
-    border: 1px solid lightgrey;
+    background-color: #f6f8fa !important;
+    border: 1.5px solid #d0d7de !important;
 }
 
 pre.rich-traceback-code {
-    background-color: #ffffff;
-    color: #616161;
+    background-color: #f6f8fa;
+    color: #484f58;
 }
 
+/* === Layout Regions === */
 #pywebio-scope-content {
-    background-color: #f9f9f9;
+    background-color: #f0f2f5;
 }
 
 [id^="pywebio-scope-group_"] {
-    background-color: white;
-    border: 1px solid lightgrey;
+    background-color: #ffffff;
+    border: 1.5px solid #d0d7de;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 #pywebio-scope-daemon-overview [id^="pywebio-scope-group_"] {
     border: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 #pywebio-scope-aside {
-    background-color: white;
-    border-right: 1px solid lightgrey;
+    background-color: #ffffff;
+    border-right: 2px solid #d0d7de;
 }
 
 #pywebio-scope-menu {
-    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
-    background-color: white;
+    background-color: #ffffff;
+    border-right: 1.5px solid #d0d7de;
+    box-shadow: none;
 }
 
 #pywebio-scope-navigator {
-    border: 1px solid lightgrey;
+    border: 1.5px solid #d0d7de;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 #pywebio-scope-scheduler-bar,
@@ -140,15 +161,24 @@ pre.rich-traceback-code {
 #pywebio-scope-pending,
 #pywebio-scope-waiting,
 #pywebio-scope-daemon-overview #pywebio-scope-groups {
-    background-color: white;
-    border: 1px solid lightgrey;
+    background-color: #ffffff;
+    border: 1.5px solid #d0d7de;
+    border-radius: 6px;
 }
 
 #pywebio-scope-header {
-    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+    background-color: #ffffff;
+    border-bottom: 2px solid #d0d7de;
+    box-shadow: none;
 }
 
+/* === Text Colors === */
 *[style*="--arg-help--"],
 [id^="pywebio-scope-group_"] > p + p {
-    color: #777777;
+    color: #57606a;
+}
+
+/* === Arg Row Separator === */
+[id^="pywebio-scope-arg_container-"] {
+    border-bottom-color: #eaecef;
 }

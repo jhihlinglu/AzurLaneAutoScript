@@ -1,58 +1,74 @@
 .modal-body {
-    background-color: #2f3136;
+    background-color: #161b22;
 }
 
+/* === Accent & Menu === */
 .btn-menu:hover,
 .btn-menu-active {
-    border-color: #7a77bb;
-    color: #7a77bb;
+    border-color: #8b87cc;
+    color: #8b87cc;
 }
 
 .btn-aside:hover,
 .btn-aside-active {
-    border-color: #7a77bb;
-    color: #7a77bb;
+    border-color: #8b87cc;
+    color: #8b87cc;
 }
 
 .btn-off {
-    background-color: #36393f;
-    border: 1px solid #202225;
+    background-color: #21262d;
+    border: 1.5px solid #30363d;
+    color: #c9d1d9;
 }
 
 .btn-on {
     background-color: #7a77bb;
-    border: 1px solid #202225;
+    border: 1.5px solid #7a77bb;
+    color: #ffffff;
+}
+
+.btn-on:hover {
+    background-color: #6a67aa;
+    color: #ffffff;
 }
 
 .btn-navigator {
-    background-color: #2f3136;
+    background-color: #161b22;
+    border-bottom-color: #21262d !important;
+    color: #c9d1d9;
 }
 
 .btn-navigator:hover {
-    color: #7a77bb;
+    color: #8b87cc;
+    background-color: #21262d;
 }
 
+/* === Separators === */
 .hr-group {
-    background-color: #40444b !important;
+    background-color: #30363d !important;
 }
 
 .hr-task-group-line {
-    border-top-color: #adb5bd;
+    border-top-color: #30363d;
+    border-top-width: 1.5px;
 }
 
 .hr-task-group-text {
-    color: #adb5bd;
+    color: #8b949e;
+    font-size: 0.8rem;
 }
 
+/* === Form Controls === */
 .form-control,
 .bootstrap-select > select {
-    border-bottom: .125rem solid #7a77bb;
+    border-bottom: 1.5px solid #7a77bb;
+    color: #c9d1d9;
 }
 
 .form-control:focus {
-    background-color: #2f3136;
-    border-color: #7a77bb;
-    box-shadow: 0 0.06rem 0 #7a77bb;
+    background-color: #161b22;
+    border-color: #8b87cc;
+    box-shadow: 0 0.1rem 0 #8b87cc;
 }
 
 input[type="checkbox"] {
@@ -71,11 +87,11 @@ select {
 
 .state-bold > select {
     font-weight: bold;
-    color: #7a77bb;
+    color: #8b87cc;
 }
 
 .state-light > select {
-    color: #777777;
+    color: #8b949e;
 }
 
 [id^="pywebio-scope-arg_stored-stored-value-"] > div > input {
@@ -84,52 +100,65 @@ select {
 }
 
 textarea {
-    border: 1px solid #21262d;
+    border: 1.5px solid #30363d;
+    border-radius: 4px;
+    background-color: #161b22;
+    color: #c9d1d9;
 }
 
 .CodeMirror-wrap {
-    border: 1px solid #21262d;
+    border: 1.5px solid #30363d;
+    border-radius: 4px;
 }
 
+/* === Icons === */
 .aside-icon > path {
     fill: #c9d1d9;
 }
 
+/* === Log === */
 .container-log {
-    background-color: #2f3136 !important;
-    border: 1px solid #21262d;
+    background-color: #161b22 !important;
+    border: 1.5px solid #30363d !important;
 }
 
 pre.rich-traceback-code {
-    color: #cccccc;
-    background-color: #1e1e1e;
+    color: #c9d1d9;
+    background-color: #0d1117;
 }
 
+/* === Layout Regions === */
 #pywebio-scope-content {
-    background-color: #36393f;
+    background-color: #0d1117;
 }
 
 [id^="pywebio-scope-group_"] {
-    background-color: #2f3136;
-    border: 1px solid #21262d;
+    background-color: #161b22;
+    border: 1.5px solid #30363d;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 #pywebio-scope-daemon-overview [id^="pywebio-scope-group_"] {
     border: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 #pywebio-scope-aside {
-    background-color: #202225;
-    border-right: 1px solid #21262d;
+    background-color: #010409;
+    border-right: 2px solid #30363d;
 }
 
 #pywebio-scope-menu {
-    background-color: #2f3136;
-    border-right: 1px solid #21262d;
+    background-color: #161b22;
+    border-right: 1.5px solid #30363d;
 }
 
 #pywebio-scope-navigator {
-    border: 1px solid #21262d;
+    border: 1.5px solid #30363d;
+    border-radius: 6px;
+    overflow: hidden;
     color: #c9d1d9;
 }
 
@@ -140,16 +169,24 @@ pre.rich-traceback-code {
 #pywebio-scope-pending,
 #pywebio-scope-waiting,
 #pywebio-scope-daemon-overview #pywebio-scope-groups {
-    background-color: #2f3136;
-    border: 1px solid #21262d;
+    background-color: #161b22;
+    border: 1.5px solid #30363d;
+    border-radius: 6px;
 }
 
 #pywebio-scope-header {
-    background-color: #202225;
-    border-bottom: 1px solid #36393f;
+    background-color: #161b22;
+    border-bottom: 2px solid #30363d;
+    box-shadow: none;
 }
 
+/* === Text Colors === */
 *[style*="--arg-help--"],
 [id^="pywebio-scope-group_"] > p + p {
-    color: #adb5bd;
+    color: #8b949e;
+}
+
+/* === Arg Row Separator === */
+[id^="pywebio-scope-arg_container-"] {
+    border-bottom-color: #21262d;
 }
