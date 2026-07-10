@@ -7,8 +7,16 @@ summary {
     color: #2d4a3e;
 }
 
+*[style*="--header-text--"] {
+    color: #1b4332 !important;
+}
+
 *[style*="--arg-title--"] {
     color: #1e2d25 !important;
+}
+
+.btn-menu {
+    color: #3a5a48 !important;
 }
 
 #pywebio-scope-scheduler-bar > p,
@@ -23,7 +31,7 @@ summary {
 .btn-menu:hover,
 .btn-menu-active {
     border-color: #2d6a4f;
-    color: #2d6a4f;
+    color: #2d6a4f !important;
 }
 
 .btn-aside:hover,
@@ -142,38 +150,40 @@ pre.rich-traceback-code {
 
 /* === Layout Regions === */
 #pywebio-scope-content {
-    background-color: #e4ede7;
+    background-color: #f2f7f4;
 }
 
 [id^="pywebio-scope-group_"] {
     background-color: #ffffff;
-    border: 1.5px solid #c5d9cc;
-    border-left: 3px solid #2d6a4f;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(45,106,79,0.08);
+    border: none;
+    border-left: 3px solid #52b788;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 6px 20px rgba(45,106,79,0.09);
 }
 
 #pywebio-scope-daemon-overview [id^="pywebio-scope-group_"] {
-    border: 0;
+    border: none;
     border-radius: 0;
     box-shadow: none;
 }
 
 #pywebio-scope-aside {
     background-color: #ffffff;
-    border-right: 2px solid #2d6a4f;
+    border-right: none;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.06);
 }
 
 #pywebio-scope-menu {
     background-color: #ffffff;
-    border-right: 2px solid #c5d9cc;
-    box-shadow: none;
+    border-right: none;
+    box-shadow: 1px 0 8px rgba(0,0,0,0.05);
 }
 
 #pywebio-scope-navigator {
-    border: 1.5px solid #c5d9cc;
-    border-radius: 6px;
+    border: none;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 4px 12px rgba(45,106,79,0.07);
 }
 
 #pywebio-scope-scheduler-bar,
@@ -184,14 +194,15 @@ pre.rich-traceback-code {
 #pywebio-scope-waiting,
 #pywebio-scope-daemon-overview #pywebio-scope-groups {
     background-color: #ffffff;
-    border: 1.5px solid #c5d9cc;
-    border-radius: 6px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 6px 20px rgba(45,106,79,0.09);
 }
 
 #pywebio-scope-header {
     background-color: #f8fbf9;
-    border-bottom: 2px solid #52b788;
-    box-shadow: none;
+    border-bottom: none;
+    box-shadow: 0 1px 0 rgba(197,217,204,0.9), 0 2px 12px rgba(0,0,0,0.05);
 }
 
 /* === Text Colors === */
