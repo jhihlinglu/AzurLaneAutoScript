@@ -60,14 +60,19 @@ class OpsiMeowfficerFarming(OSMap):
                 ap_checked = True
 
             # (1252, 1012) is the coordinate of zone 134 (the center zone) in os_globe_map.png
-            if self.config.OpsiMeowfficerFarming_TargetZone != 0:
-                try:
-                    zone = self.name_to_zone(self.config.OpsiMeowfficerFarming_TargetZone)
-                except ScriptError:
-                    logger.warning(f'wrong zone_id input:{self.config.OpsiMeowfficerFarming_TargetZone}')
-                    raise RequestHumanTakeover('wrong input, task stopped')
-                else:
-                    logger.hr(f'OS meowfficer farming, zone_id={zone.zone_id}', level=1)
+            raw = str(self.config.OpsiMeowfficerFarming_TargetZone).strip()
+            zone_names = [z.strip() for z in raw.replace('，', ',').split(',') if z.strip() and z.strip() != '0']
+            if zone_names:
+                target_zones = []
+                for name in zone_names:
+                    try:
+                        target_zones.append(self.name_to_zone(name))
+                    except ScriptError:
+                        logger.warning(f'wrong zone_id input:{name}')
+                        raise RequestHumanTakeover(f'Wrong TargetZone input: {name}, task stopped')
+                zone_ids = ', '.join(str(z.zone_id) for z in target_zones)
+                logger.hr(f'OS meowfficer farming, zones=[{zone_ids}]', level=1)
+                for zone in target_zones:
                     self.globe_goto(zone, refresh=True)
                     self.fleet_set(self.config.OpsiFleet_Fleet)
                     self.os_order_execute(

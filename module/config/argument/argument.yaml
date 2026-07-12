@@ -744,6 +744,7 @@ OpsiMeowfficerFarming:
     option: [ 3, 4, 5, 6, 10 ]
   TargetZone:
     value: 0
+    valuetype: str
 OpsiHazard1Leveling:
   TargetZone:
     value: 0
@@ -751,6 +752,7 @@ OpsiHazard1Leveling:
 OpsiZoneFarm:
   TargetZone:
     value: 0
+    valuetype: str
   ActionPointPreserve:
     value: 0
   UseActionPointBox:

@@ -2661,7 +2661,7 @@
     },
     "TargetZone": {
       "name": "OpsiMeowfficerFarming.TargetZone.name",
-      "help": "OpsiMeowfficerFarming.TargetZone.help"
+      "help": "周回するゾーン。単一またはカンマ区切りで複数指定可、例: \"51\" or \"14,21,32\"。0で自動選択"
     }
   },
   "OpsiHazard1Leveling": {
@@ -2684,7 +2684,7 @@
     },
     "TargetZone": {
       "name": "対象ゾーンID",
-      "help": "周回するゾーンID（例: \"51\"）。0で無効"
+      "help": "周回するゾーンID。単一またはカンマ区切りで複数指定可、例: \"51\" or \"51,72\"。0で無効"
     },
     "ActionPointPreserve": {
       "name": "行動力保持量",

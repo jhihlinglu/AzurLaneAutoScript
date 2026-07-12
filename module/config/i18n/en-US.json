@@ -2661,7 +2661,7 @@
     },
     "TargetZone": {
       "name": "Target Zone ID",
-      "help": "Supports either Zone ID or Name in CN/EN/JP/TW, i.e. \"51\", \"NA Ocean SE Sector E\"\nIf specified, Alas will loop on this same zone after each clear\nUse default value 0 or clear the field to remove the specification\nZone information can be acquired from <./module/os/map_data.py>"
+      "help": "Zone(s) to farm. Supports single or multiple comma-separated IDs, e.g. \"51\" or \"14,21,32\"\nSet to 0 for auto-selection"
     }
   },
   "OpsiHazard1Leveling": {
@@ -2684,7 +2684,7 @@
     },
     "TargetZone": {
       "name": "Target Zone ID",
-      "help": "Zone to farm repeatedly. Supports zone ID or name, e.g. \"51\"\nSet to 0 to disable"
+      "help": "Zone(s) to farm repeatedly. Supports single or multiple comma-separated IDs, e.g. \"51\" or \"51,72\"\nSet to 0 to disable"
     },
     "ActionPointPreserve": {
       "name": "Action Point Preserve",
