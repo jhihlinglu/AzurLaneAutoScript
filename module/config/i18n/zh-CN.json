@@ -695,6 +695,7 @@
       "coalition_20250626": "迷彩都市的寻踪者",
       "coalition_20251120": "DATE A LANE",
       "coalition_20260122": "光影风尚-拍摄进行时",
+      "coalition_20260723": "怪谈纪实",
       "event_20200227_cn": "北境序曲",
       "event_20200312_cn": "复刻斯图尔特的硝烟",
       "event_20200326_cn": "微层混合",
@@ -835,8 +836,10 @@
       "war_archives_20220915_cn": "档案 紫绛槿岚",
       "war_archives_20221222_cn": "档案 定向折叠",
       "war_archives_20230223_cn": "档案 湮烬尘墟",
+      "war_archives_20230525_cn": "档案 空相交汇点",
       "war_archives_20230803_cn": "档案 奏响鸢尾之歌",
-      "war_archives_20231026_cn": "档案 飓风与青春之泉"
+      "war_archives_20231026_cn": "档案 飓风与青春之泉",
+      "war_archives_20240725_cn": "档案 幻梦间奏曲"
     },
     "Mode": {
       "name": "关卡模式",
@@ -1448,14 +1451,15 @@
     },
     "Mode": {
       "name": "难度",
-      "help": "SP图需要使用活动每日SP运行；极地风暴活动使用TC1/TC2/TC3",
+      "help": "难度依所选活动而定。极地风暴使用TC1/TC2/TC3；其余活动使用easy/normal/hard/ex。SP图请改用「特殊活动SP」任务运行。DATE A LANE为特殊地图系统，本选单不适用",
       "tc1": "TC1",
       "tc2": "TC2",
       "tc3": "TC3",
       "easy": "easy",
       "normal": "normal",
       "hard": "hard",
-      "sp": "sp"
+      "sp": "sp",
+      "ex": "ex"
     },
     "Fleet": {
       "name": "出击队伍",
@@ -2696,8 +2700,8 @@
     "UseActionPointBox": {
       "name": "自动使用行动力箱子",
       "help": "行动力耗尽时自动打开箱子继续刷",
-      "true": "是",
-      "false": "否"
+      "True": "True",
+      "False": "False"
     }
   },
   "Daemon": {

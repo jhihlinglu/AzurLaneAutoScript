@@ -4550,24 +4550,52 @@
         "type": "select",
         "value": "campaign_main",
         "option": [
-          "coalition_20230323",
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_cn": [
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_en": [
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_jp": [
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_tw": [
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
           "coalition_20230323"
         ],
         "option_bold": [
-          "coalition_20230323",
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ]
       },
       "Mode": {
@@ -4616,7 +4644,8 @@
           "easy",
           "normal",
           "hard",
-          "sp"
+          "sp",
+          "ex"
         ]
       },
       "Fleet": {
@@ -4895,10 +4924,14 @@
           "war_archives_20220915_cn",
           "war_archives_20221222_cn",
           "war_archives_20230223_cn",
+          "war_archives_20230525_cn",
           "war_archives_20230803_cn",
-          "war_archives_20231026_cn"
+          "war_archives_20231026_cn",
+          "war_archives_20240725_cn"
         ],
         "option_cn": [
+          "war_archives_20240725_cn",
+          "war_archives_20230525_cn",
           "war_archives_20230803_cn",
           "war_archives_20220818_cn",
           "war_archives_20230223_cn",
@@ -4947,6 +4980,8 @@
           "war_archives_20181020_en"
         ],
         "option_en": [
+          "war_archives_20240725_cn",
+          "war_archives_20230525_cn",
           "war_archives_20230803_cn",
           "war_archives_20220818_cn",
           "war_archives_20230223_cn",
@@ -4995,6 +5030,8 @@
           "war_archives_20181020_en"
         ],
         "option_jp": [
+          "war_archives_20240725_cn",
+          "war_archives_20230525_cn",
           "war_archives_20230803_cn",
           "war_archives_20220818_cn",
           "war_archives_20230223_cn",
@@ -5043,6 +5080,8 @@
           "war_archives_20181020_en"
         ],
         "option_tw": [
+          "war_archives_20240725_cn",
+          "war_archives_20230525_cn",
           "war_archives_20230803_cn",
           "war_archives_20220818_cn",
           "war_archives_20230223_cn",
@@ -10635,24 +10674,52 @@
         "type": "select",
         "value": "campaign_main",
         "option": [
-          "coalition_20230323",
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_cn": [
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_en": [
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_jp": [
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ],
         "option_tw": [
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
           "coalition_20230323"
         ],
         "option_bold": [
-          "coalition_20230323",
-          "coalition_20260122"
+          "coalition_20260723",
+          "coalition_20260122",
+          "coalition_20251120",
+          "coalition_20250626",
+          "coalition_20240627",
+          "coalition_20230323"
         ]
       },
       "Mode": {
@@ -10701,7 +10768,8 @@
           "easy",
           "normal",
           "hard",
-          "sp"
+          "sp",
+          "ex"
         ],
         "display": "hide"
       },
@@ -13376,7 +13444,8 @@
       },
       "TargetZone": {
         "type": "input",
-        "value": 0
+        "value": 0,
+        "valuetype": "str"
       }
     },
     "OpsiFleet": {
@@ -13516,7 +13585,8 @@
     "OpsiZoneFarm": {
       "TargetZone": {
         "type": "input",
-        "value": 0
+        "value": 0,
+        "valuetype": "str"
       },
       "ActionPointPreserve": {
         "type": "input",

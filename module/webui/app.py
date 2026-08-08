@@ -492,30 +492,51 @@ class AlasGUI(Frame):
                 output.show()
 
         _stage_inject_targets = [
-            ('EventClear', 'EventClear', 'EventClear_EventClear_Event', None),
-            ('Event',      'Campaign',   'Event_Campaign_Event',        'Event_Campaign_Name'),
-            ('Event2',     'Campaign',   'Event2_Campaign_Event',       'Event2_Campaign_Name'),
+            ('EventClear', 'EventClear', 'EventClear_EventClear_Event', None,                          'input',  'stage'),
+            ('Event',      'Campaign',   'Event_Campaign_Event',        'Event_Campaign_Name',          'input',  'stage'),
+            ('Event2',     'Campaign',   'Event2_Campaign_Event',       'Event2_Campaign_Name',         'input',  'stage'),
+            ('Coalition',  'Campaign',   'Coalition_Campaign_Event',    'Coalition_Coalition_Mode',     'select', 'coalition_mode'),
+            ('CoalitionSp','Campaign',   'CoalitionSp_Campaign_Event',  'CoalitionSp_Coalition_Mode',   'select', 'coalition_mode'),
         ]
-        for _t_task, _t_group, _arg_key, _fill_key in _stage_inject_targets:
+        for _t_task, _t_group, _arg_key, _fill_key, _fill_type, _map_source in _stage_inject_targets:
             if task == _t_task and group_name == _t_group:
-                from module.webui.widgets import _ec_stage_map
+                from module.webui.widgets import _ec_coalition_mode_map, _ec_stage_map
                 import json as _json
-                _sm = _ec_stage_map()
+                _sm = _ec_coalition_mode_map() if _map_source == 'coalition_mode' else _ec_stage_map()
                 _sm_json = _json.dumps(_sm, ensure_ascii=False)
                 _did = f'ec-stage-display-{_arg_key}'
                 _sid = f'pywebio-scope-arg_container-select-{_arg_key}'
-                _fill_scope = f'pywebio-scope-arg_container-input-{_fill_key}' if _fill_key else ''
-                _click_js = (
-                    f'var el=document.getElementById("{_fill_scope}");'
-                    f'var inp=el?el.querySelector("input"):null;'
-                    f'if(inp){{'
-                    f'inp.value=s;'
-                    f'inp.dispatchEvent(new Event("input",{{bubbles:true}}));'
-                    f'inp.dispatchEvent(new Event("change",{{bubbles:true}}));'
-                    f'sp.classList.add("ec-stage-tag-flash");'
-                    f'setTimeout(function(){{sp.classList.remove("ec-stage-tag-flash");}},250);'
-                    f'}}'
-                ) if _fill_key else ''
+                _fill_scope = f'pywebio-scope-arg_container-{_fill_type}-{_fill_key}' if _fill_key else ''
+                if _fill_key and _fill_type == 'select':
+                    # pywebio's select widget is jQuery-bound (`.on("change", ...)`),
+                    # a raw DOM value assignment doesn't sync back to session state.
+                    # Must go through jQuery's own val()+trigger() to be picked up.
+                    _click_js = (
+                        f'var el=document.getElementById("{_fill_scope}");'
+                        f'var tgt=el?el.querySelector("select"):null;'
+                        f'if(tgt){{'
+                        f'if(window.jQuery){{jQuery(tgt).val(s).trigger("change");}}'
+                        f'else{{tgt.value=s;'
+                        f'tgt.dispatchEvent(new Event("input",{{bubbles:true}}));'
+                        f'tgt.dispatchEvent(new Event("change",{{bubbles:true}}));}}'
+                        f'sp.classList.add("ec-stage-tag-flash");'
+                        f'setTimeout(function(){{sp.classList.remove("ec-stage-tag-flash");}},250);'
+                        f'}}'
+                    )
+                elif _fill_key:
+                    _click_js = (
+                        f'var el=document.getElementById("{_fill_scope}");'
+                        f'var inp=el?el.querySelector("input"):null;'
+                        f'if(inp){{'
+                        f'inp.value=s;'
+                        f'inp.dispatchEvent(new Event("input",{{bubbles:true}}));'
+                        f'inp.dispatchEvent(new Event("change",{{bubbles:true}}));'
+                        f'sp.classList.add("ec-stage-tag-flash");'
+                        f'setTimeout(function(){{sp.classList.remove("ec-stage-tag-flash");}},250);'
+                        f'}}'
+                    )
+                else:
+                    _click_js = ''
                 _cursor = 'cursor:pointer;' if _fill_key else ''
                 run_js(
                     f'(function(){{'

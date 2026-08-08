@@ -385,6 +385,33 @@ def _ec_stage_map() -> dict:
     return result
 
 
+def _ec_coalition_mode_map() -> dict:
+    """
+    Parse module/coalition/ui.py for `('coalition_YYYYMMDD', 'mode')` pairs and
+    return {event: 'tc1 tc2 tc3 sp ex'} so the GUI can show clickable Mode tags.
+
+    DAL (coalition_20251120) uses hyphenated stage names like 'area1-normal' that
+    aren't valid Coalition.Mode options, so it's naturally excluded by the regex.
+    """
+    import re
+
+    path = './module/coalition/ui.py'
+    result = {}
+    try:
+        with open(path, encoding='utf-8') as f:
+            text = f.read()
+    except FileNotFoundError:
+        return result
+
+    for m in re.finditer(r"\('coalition_(\d{8})',\s*'([a-z0-9]+)'\)", text):
+        event, mode = f'coalition_{m.group(1)}', m.group(2)
+        modes = result.setdefault(event, [])
+        if mode not in modes:
+            modes.append(mode)
+
+    return {event: ' '.join(modes) for event, modes in result.items()}
+
+
 def put_arg_select(kwargs: T_Output_Kwargs) -> Output:
     name: str = kwargs["name"]
     value: str = kwargs["value"]

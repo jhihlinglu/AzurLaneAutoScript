@@ -695,6 +695,7 @@
       "coalition_20250626": "The Neon City Investigator",
       "coalition_20251120": "DATE A LANE",
       "coalition_20260122": "Light & Shadow Fashion Shoot!",
+      "coalition_20260723": "Authentic Horror Story",
       "event_20200227_cn": "Northern Overture",
       "event_20200312_cn": "The Solomon Ranger Rerun",
       "event_20200326_cn": "Microlayer Medley",
@@ -835,8 +836,10 @@
       "war_archives_20220915_cn": "archives Violet Tempest Blooming Lycoris",
       "war_archives_20221222_cn": "archives Parallel Superimposition",
       "war_archives_20230223_cn": "archives Revelations of Dust",
+      "war_archives_20230525_cn": "archives Confluence of Nothingness",
       "war_archives_20230803_cn": "archives Anthem of Remembrance",
-      "war_archives_20231026_cn": "archives Tempesta and the Fountain of Youth"
+      "war_archives_20231026_cn": "archives Tempesta and the Fountain of Youth",
+      "war_archives_20240725_cn": "archives Interlude of Illusions"
     },
     "Mode": {
       "name": "Level Mode",
@@ -1448,14 +1451,15 @@
     },
     "Mode": {
       "name": "Mode",
-      "help": "SP needs to use event daily SP to run; Frostfall event uses TC1/TC2/TC3",
+      "help": "Difficulty depends on the selected event. Frostfall uses TC1/TC2/TC3; other events use easy/normal/hard/ex. For SP maps, use the CoalitionSp task instead. DATE A LANE uses a special area system not covered by this dropdown",
       "tc1": "TC1",
       "tc2": "TC2",
       "tc3": "TC3",
       "easy": "easy",
       "normal": "normal",
       "hard": "hard",
-      "sp": "sp"
+      "sp": "sp",
+      "ex": "ex"
     },
     "Fleet": {
       "name": "Fleet",
@@ -2696,8 +2700,8 @@
     "UseActionPointBox": {
       "name": "Use Action Point Box",
       "help": "Automatically open AP boxes when depleted",
-      "true": "Yes",
-      "false": "No"
+      "True": "True",
+      "False": "False"
     }
   },
   "Daemon": {

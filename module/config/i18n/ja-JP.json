@@ -695,6 +695,7 @@
       "coalition_20250626": "ネオンシティの探索者",
       "coalition_20251120": "DATE A LANE",
       "coalition_20260122": "特集写真-撮影進行中",
+      "coalition_20260723": "怪談実録",
       "event_20200227_cn": "凍絶の北海",
       "event_20200312_cn": "南洋に靡く硝煙（復刻）",
       "event_20200326_cn": "闇靄払う銀翼",
@@ -835,8 +836,10 @@
       "war_archives_20220915_cn": "檔案 赫の涙月 菫の暁風",
       "war_archives_20221222_cn": "檔案 積重なる事象の幻界",
       "war_archives_20230223_cn": "檔案 黙示の遺構",
+      "war_archives_20230525_cn": "檔案 覆天せし万象の塵",
       "war_archives_20230803_cn": "檔案 燃ゆる聖都の回想曲",
-      "war_archives_20231026_cn": "檔案 テンペスタと若返りの泉"
+      "war_archives_20231026_cn": "檔案 テンペスタと若返りの泉",
+      "war_archives_20240725_cn": "檔案 夢幻の間奏曲"
     },
     "Mode": {
       "name": "Campaign.Mode.name",
@@ -1455,7 +1458,8 @@
       "easy": "easy",
       "normal": "normal",
       "hard": "hard",
-      "sp": "sp"
+      "sp": "sp",
+      "ex": "ex"
     },
     "Fleet": {
       "name": "Coalition.Fleet.name",
@@ -2696,8 +2700,8 @@
     "UseActionPointBox": {
       "name": "行動力ボックス自動使用",
       "help": "行動力が尽きたら自動でボックスを開く",
-      "true": "はい",
-      "false": "いいえ"
+      "True": "True",
+      "False": "False"
     }
   },
   "Daemon": {
