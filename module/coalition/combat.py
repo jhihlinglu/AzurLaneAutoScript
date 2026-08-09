@@ -73,6 +73,10 @@ class CoalitionCombat(CoalitionUI, CampaignBase):
     def auto_search_combat_end(self):
         if self.appear(BATTLE_STATUS, offset=(80, 20)):
             return True
+        # Multi-fleet mode's combined 3-column settlement screen doesn't match
+        # single-fleet BATTLE_STATUS at all, needs its own check
+        if self.appear(COALITION_MULTI_REWARD_CONFIRM, offset=(20, 20)):
+            return True
         return False
 
     def coalition_combat(self):
