@@ -41,6 +41,10 @@ class CoalitionCombat(CoalitionUI, CampaignBase):
                 # Stop clicking BATTLE_STATUS because combat ends
                 status_clicked = False
                 continue
+            if self.appear_then_click(COALITION_MULTI_REWARD_CONFIRM, offset=(20, 20), interval=2):
+                # Multi-fleet mode shows a combined 3-column settlement screen instead
+                status_clicked = False
+                continue
             # Coalition 20251120 has ship drop
             if self.handle_get_ship():
                 continue
@@ -53,6 +57,18 @@ class CoalitionCombat(CoalitionUI, CampaignBase):
                 if click_timer.reached() and not click_last.reached():
                     self.device.click(BATTLE_STATUS)
                     click_timer.reset()
+
+    def is_combat_executing(self):
+        """
+        Some coalition bosses (e.g. HORROR hard mode's Z11) run well past the generic
+        180s stuck-detection ceiling in module/device/device.py. As long as the pause
+        icon is genuinely visible, combat is still legitimately in progress, so reset
+        the stuck timer here to avoid a false GameStuckError mid-fight.
+        """
+        result = super().is_combat_executing()
+        if result:
+            self.device.stuck_record_clear()
+        return result
 
     def auto_search_combat_end(self):
         if self.appear(BATTLE_STATUS, offset=(80, 20)):
